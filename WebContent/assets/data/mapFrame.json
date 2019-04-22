@@ -1,0 +1,15 @@
+{
+  "level": "1",
+  "npc_battling": "-1",
+  "inventory": [],
+  "currentpos": {
+    "X": "352",
+    "Y": "1140"
+  },
+  "map": {
+    "npcs": {
+    },
+    "cards": {
+    }
+  }
+}

@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+
+}
+
+.wrapper{
+	margin: 0 auto;
+	/*width: 1000px;*/
+	background-image: url("../images/battlebg.jpg");
+ 	width: 1200px;
+	height: 540px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: all;
+}
+
+
+h1{
+	text-align: center;
+	font-size: 70px;
+	color: #ffffff;
+	font-family: sans-serif;
+}
+
+
+

@@ -1,0 +1,89 @@
+*{
+	margin: 0;
+	padding: 0;
+
+}
+
+.wrapper{
+	margin: 0 auto;
+	/*width: 1000px;*/
+	background-image: url("../images/battlebg.jpg");
+ 	width: 1200px;
+	height: 540px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: all;
+}
+
+#playerc1
+{
+	text-align: left;
+	font-size: 40px;
+	color: #ffffff;
+	font-family: sans-serif;
+}
+
+
+#villainc1
+{
+	text-align: right;
+	font-size: 40px;
+	color: #ffffff;
+	font-family: sans-serif;
+}
+
+
+#playerc2
+{
+	text-align: left;
+	font-size: 40px;
+	color: #ffffff;
+	font-family: sans-serif;
+}
+
+#player
+{
+	background-image: url("../images/player1.png");
+	background-position: top;
+	margin: 10px;
+	float: left;
+	width: 102px;
+	height: 145px;
+	background-repeat: no-repeat;
+	background-size: 200%;
+}
+
+#player:hover
+{
+
+	background-size: 100%;
+}
+
+#villain
+{
+	background-image: url("../images/player2.png");
+	margin: 10px;
+	float: right;
+	background-position: top center;
+	width: 102px;
+	height: 145px;
+	background-repeat: no-repeat;
+	background-size: 200%;
+
+}
+
+#villain:hover
+{
+
+	background-size: 100%;
+}
+
+h1{
+	text-align: center;
+	font-size: 70px;
+	color: #ffffff;
+	font-family: sans-serif;
+}
+
+
+

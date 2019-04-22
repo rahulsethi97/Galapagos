@@ -1,0 +1,35 @@
+body { height: 100%; }
+.card {
+  background: black;
+  width: 240px;
+  height: 330px;
+  color: #2EA267;
+  padding: 25px;
+  border: 10px solid #1DAA66;
+  border-radius: 20px;
+  font-family: Arial; 
+  font-size: 20px;
+  margin-right: 200px;
+  position: relative;
+  float: right;
+  }
+.health {  
+  position: absolute; 
+  top: 5px; 
+  right: 25px; 
+  color: #603871; }
+img.hero { width: 100%; height: auto; }
+.strengths, .weaknesses {
+  width: 50%;
+  float: left;
+}
+
+label {
+  float: left;
+  width: 33%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  clear: both;
+}
+b { float: left; width: 65%; padding-bottom: 2%;}
+.clear { clear: both; }

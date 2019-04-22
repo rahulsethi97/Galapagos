@@ -1,0 +1,37 @@
+<?xml version = "1.0"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   <constant name = "struts.devMode" value = "true" />
+   
+   <package name = "map" extends="json-default">
+     <action name = "startGame" class = "map.StartGame" method = "execute">
+        <result name = "success" type="redirect">/map.jsp</result>
+      </action>
+      <action name="collectCard" class="map.CollectCard">
+		<result name="success" type="json">/map.jsp</result>
+	  </action>
+	  
+	  <action name="populateMap" class="map.MapDetails">
+		<result name="success" type="json">/map.jsp</result>
+	  </action>
+	  
+	  <action name="populateInventory" class="map.PopulateInventory">
+		<result name="success" type="json">/map.jsp</result>
+	  </action>
+	  
+	  <action name="storeLocation" class="map.StoreLocation">
+		<result name="success" type="json">/map.jsp</result>
+	  </action>
+	  
+	  <action name="populateBattle" class="map.PopulateBattle">
+		<result name="success" type="json">/map.jsp</result>
+	  </action>
+	  
+	  <action name="startBattle" class="map.StartBattle">
+		<result name="success" type="json">/battle.jsp</result>
+	  </action>
+   </package>
+</struts>
