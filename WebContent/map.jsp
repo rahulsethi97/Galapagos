@@ -8,6 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/story.css">
     <title>Phaser Template</title>
 
     <style>
@@ -51,6 +52,7 @@
         grid-column: 1;
         grid-row: 2;
       }
+      
       #myleft{
         position:relative;
         float:left;
@@ -82,6 +84,9 @@
       </div>
       <div class="grid-item item3">
         <div id="game-container"></div>
+      </div>
+      <div class="grid-item item4">
+      	Story
       </div>
     </div>
     

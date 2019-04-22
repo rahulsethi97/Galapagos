@@ -7,7 +7,7 @@
 const config = {
   type: Phaser.AUTO,
   width: 1250,
-  height: 590,
+  height: 700,
   // height: 12090,
   parent: "game-container",
   pixelArt: true,

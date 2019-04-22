@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="./assets/css/battle.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/battle_card.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/story.css">
     <title>Phaser Template</title>
 
     <style>
@@ -133,6 +134,9 @@
           </div>
         </div>
       </div>
+      	<div class="grid-item item4">
+     		Story
+		</div>
     </div>
     
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>

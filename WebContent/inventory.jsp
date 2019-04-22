@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="./assets/css/inventory.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/card.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/story.css">
     <title>Phaser Template</title>
 
     <style>
@@ -37,6 +38,7 @@
         grid-column: 1;
         grid-row: 2;
       }
+      
       #myleft{
         position:relative;
         float:left;
@@ -80,21 +82,21 @@
 
   <body>
     <div class="grid-container">
-      <div class="grid-item item1"></div>
-      <div class="grid-item item2">
-        <div id='myleft'>Player Name</div> 
-        <div id='myright'></div> 
-        <div id='mycenter'><a style = "text-decoration: none;color: white" href = "/Galapagos/map.jsp" >Home</a>  |  <a href = "/Galapagos/inventory.jsp" style = "text-decoration: none;color: white"  >Inventory</a></div> 
-      </div>
-      <div class="grid-item item3">
-        <div class ="wrapper">
-          <h1> Inventory </h1>
-            <div id = "cardList" class="cardlistwrapper">
-
-            </div>
-            <!-- <div id = "cardDetails" style = "display:none"><img src = "./assets/images/battlecard.jpg" width="23%" height="23%"></div> -->
-            <div class="card" id = "cardDetails" style = "display:none"	>
-				  <div class="health" id = "name"></div>
+		<div class="grid-item item1"></div>
+		<div class="grid-item item2">
+		  <div id='myleft'>Player Name</div> 
+		  <div id='myright'></div> 
+		  <div id='mycenter'><a style = "text-decoration: none;color: white" href = "/Galapagos/map.jsp" >Home</a>  |  <a href = "/Galapagos/inventory.jsp" style = "text-decoration: none;color: white"  >Inventory</a></div> 
+		</div>
+		<div class="grid-item item3">
+		  <div class ="wrapper">
+		    <h1> Inventory </h1>
+		      <div id = "cardList" class="cardlistwrapper">
+		
+		      </div>
+		      <!-- <div id = "cardDetails" style = "display:none"><img src = "./assets/images/battlecard.jpg" width="23%" height="23%"></div> -->
+		      <div class="card" id = "cardDetails" style = "display:none"	>
+		 	<div class="health" id = "name"></div>
 				<br>
 				<!-- <img src="http://x.annihil.us/u/prod/marvel/i/mg/e/e0/537bafa34baa9.jpg" class="hero"> -->
 				<br><br>
@@ -105,10 +107,12 @@
 				<label>Offense</label><b id = "offense"></b>
 				<label>Defense</label><b id = "defense"></b>
 			</div>
-          </div>
-        </div>
-      </div>
-    </div>
+	       </div>
+	    </div>
+		<div class="grid-item item4">
+      		Story
+    	</div>
+     </div>
     
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
