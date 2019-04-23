@@ -7,38 +7,30 @@
 .wrapper{
 	margin: 0 auto;
 	/*width: 1000px;*/
-	background-image: url("../images/battlebg.jpg");
+	background-image: url("../images/battlebg.png");
  	width: 1400px;
 	height: 610px;
 	background-size: cover;
 	background-position: all;
 }
 
-#playerc1
+.playerc
 {
 	text-align: left;
-	font-size: 40px;
+	font-size: 30px;
 	color: #ffffff;
 	font-family: sans-serif;
 }
 
 
-#villainc1
+.villainc
 {
 	text-align: right;
-	font-size: 40px;
+	font-size: 30px;
 	color: #ffffff;
 	font-family: sans-serif;
 }
 
-
-#playerc2
-{
-	text-align: left;
-	font-size: 40px;
-	color: #ffffff;
-	font-family: sans-serif;
-}
 
 #player
 {

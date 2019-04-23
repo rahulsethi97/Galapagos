@@ -21,6 +21,15 @@ public class StartBattle {
 	public String npc_id;
 	public String result;
 	public int level;
+	public String lostConversation[];
+
+	public String[] getLostConversation() {
+		return lostConversation;
+	}
+
+	public void setLostConversation(String lostConversation[]) {
+		this.lostConversation = lostConversation;
+	}
 
 	public String getResult() {
 		return result;
@@ -65,6 +74,7 @@ public class StartBattle {
 		
 		data.put("map", map);
 		data.put("npc_battling", "-1");
+		data.put("show_story", "1");
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
@@ -104,8 +114,15 @@ public class StartBattle {
 							  );
 		
 		BattleEngine battle = new BattleEngine(playerCard, npcCard);
+		String winner = battle.retWinner();
 		
-		return battle.retWinner();
+		if(winner.equals("Card2")) {
+			BattleBanter bb = new BattleBanter(npcCard, playerCard);
+			this.lostConversation = bb.retBanter();
+			System.out.println(java.util.Arrays.toString(this.lostConversation));
+		}
+		
+		return winner;
 	}
 	
 	public void startBattle() throws FileNotFoundException, IOException, ParseException {

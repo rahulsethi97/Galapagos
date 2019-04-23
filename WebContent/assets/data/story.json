@@ -1,0 +1,18 @@
+{
+	"1":{
+		"title": "The Spy",
+		"story": "Bla Bla",
+		"battle_conversation": "asdasd.#jiidako.#oksadkoawkdo.#koskdaokw",
+		"before_battle_init": "1",
+		"after_battle": "sadjiasjid.#jisajdiasj.#jisadjiasj.",
+		"after_battle_init": "0"
+	},
+	"2":{
+		"title": "An Old Friend",
+		"story": "Bla2 Bla2",
+		"battle_conversation": "asdasd2.#jiidako2.#oksadkoawkdo2.#koskdaokw2",
+		"before_battle_init": "0",
+		"after_battle": "sadjiasji2.#jisajdiasj2.#asdkowadjiasj2.",
+		"after_battle_init": "1"
+	}
+}

@@ -69,8 +69,8 @@ public class PopulateInventory {
 		inventoryData = new JSONObject();
 		for (int i = 0; i < inventory.size(); i++) {
 			String cardId = inventory.get(i).toString();
-			System.out.println(cardId);
-			System.out.println(obj2.get(cardId));
+//			System.out.println(cardId);
+//			System.out.println(obj2.get(cardId));
 			
 			inventoryData.put(cardId, obj2.get(cardId));
 		}

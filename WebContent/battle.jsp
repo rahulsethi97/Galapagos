@@ -88,15 +88,11 @@
       </div>
       <div class="grid-item item3">
         <div class ="wrapper">
-          <h1> Battle </h1>
+          <h1 id = "pageTitle"> Battle </h1>
           <div id = "player"></div>
           <div id = "villain"></div>
           <div id = "playerC"></div>
           <div id = "ground">
-            <div id="playerc1" style="visibility:hidden">I have come here to fight you</div>
-            <div id="villainc1" style="visibility:hidden">Are you ready to lose?</div>
-            <div id="playerc2" style="visibility:hidden">Not if I defeat you first.</div>
-            <div id="BattleButton" style="visibility:hidden"><button onclick="chooseCard();">Start Battle</button></div>
           </div>
           
           <div id = "playercard" style = "display:none">
@@ -135,7 +131,8 @@
         </div>
       </div>
       	<div class="grid-item item4">
-     		Story
+      		<div id = "dialogueBox">
+      		</div>
 		</div>
     </div>
     
@@ -152,6 +149,7 @@
   	var level = "";
   	var inventoryData;
 	var cardDetails;
+	var battleStory;
 	
 	jQuery.ajax({
 		type : "GET",
@@ -172,7 +170,9 @@
 	
 	document.getElementById("myright").innerHTML = "Level: " + level;
 	
+	
 	function startBattle(){
+		var lostConversation;
 		console.log(npcCardId + " - " + playerChosenCardId);
 		var result;
 		var message;
@@ -184,19 +184,67 @@
 			success : function(data) {
 				console.log(data);
 				result = data.result;
+				lostConversation = data.lostConversation;
 			},
 			error : function(data) {
 				alert("Some error occured.");
 			}
 		});
 		
+		var htmlCode = '';
+		var afterBattle;
 		if(result == "Card2"){
+			document.getElementById("mycenter").innerHTML = '<a style = "text-decoration: none;color: white" href = "/Galapagos" >Restart</a>'
 			message = "You Lost";
+			afterBattle = lostConversation;
+			document.getElementById("pageTitle").innerHTML = message;
+			
+			for (var i = 0; i < afterBattle.length; i++) {
+			      if((i%2) == 0){
+			      	htmlCode += '<div class="villainc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			      }else{
+			      	htmlCode += '<div class="playerc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			      }
+			}
+			
 		}else{
 			message = "You Won";
+			afterBattle = battleStory.after_battle.split("#");
+			var after_battle_init = battleStory.after_battle_init;
+			document.getElementById("pageTitle").innerHTML = message;
+			if(after_battle_init == "1"){//Player Starts
+			 for (var i = 0; i < afterBattle.length; i++) {
+			       if((i%2) == 0){
+			       	htmlCode += '<div class="playerc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			       }else{
+			       	htmlCode += '<div class="villainc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			       }
+			 }
+			}else{//Opponent Starts
+			 for (var i = 0; i < afterBattle.length; i++) {
+			       if((i%2) == 0){
+			       	htmlCode += '<div class="villainc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			       }else{
+			       	htmlCode += '<div class="playerc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			       }
+			 }
+			}
 		}
 		
-		document.getElementById("battleOptions").innerHTML = message;
+		
+	      
+	    document.getElementById("playercard").style.display = "none";
+	    document.getElementById("opponentcard").style.display = "none";
+	    document.getElementById("battleOptions").style.display = "none";
+	    document.getElementById("ground").style.display = "block";
+	    document.getElementById("ground").innerHTML = htmlCode;
+	    
+	    console.log(afterBattle);
+	    
+	    for (var i = 0; i < afterBattle.length; i++) {
+	  	  showText("" + 2*i,i+1);
+	    }
+		
 	}
 	
     function showText(id,delay)
@@ -206,10 +254,53 @@
     }
     window.onload=function()
     {
-      showText('playerc1',1);
-      showText('villainc1',2);
-      showText('playerc2',3);
-      showText('BattleButton',4);
+    	
+    	jQuery.ajax({
+			type : "GET",
+			url : "getStoryBattle",
+			async: false,
+			data: {level: level},
+			success : function(data) {
+				console.log(data);
+				battleStory = data;
+			},
+			error : function(data) {
+				alert("Some error occured.");
+			}
+		});
+    	
+	      var beforeBattleConversation = battleStory.battle_conversation.split("#");
+	      var before_battle_init = battleStory.before_battle_init;
+	      var htmlCode = "<div>";
+	      if(before_battle_init == "1"){//Player Starts
+	    	  for (var i = 0; i < beforeBattleConversation.length; i++) {
+	    	        if((i%2) == 0){
+	    	        	htmlCode += '<div class="playerc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
+	    	        }else{
+	    	        	htmlCode += '<div class="villainc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
+	    	        }
+	    	  }
+	      }else{//Opponent Starts
+	    	  for (var i = 0; i < beforeBattleConversation.length; i++) {
+		   	        if((i%2) == 0){
+		   	        	htmlCode += '<div class="villainc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
+		   	        }else{
+		   	        	htmlCode += '<div class="playerc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
+		   	        }
+		   	  }
+	      }
+	      
+	      htmlCode += '</div><div id="BattleButton" style="visibility:hidden"><button onclick="chooseCard();">Start Battle</button></div>';
+	      
+	      document.getElementById("ground").innerHTML = htmlCode;
+	      
+	      console.log(beforeBattleConversation);
+	      
+	      for (var i = 0; i < beforeBattleConversation.length; i++) {
+	    	  showText("" + i,i+1);
+	      }
+	      
+	      showText('BattleButton',4);
     }
 
     function battle(cardId){
@@ -231,7 +322,21 @@
     }
 
     function chooseCard(){
-	
+	  	var guideMessage;
+	   	jQuery.ajax({
+			type : "GET",
+			url : "getGuideMessage",
+			async: false,
+			data: {npcCardId : npcCardId},
+			success : function(data) {
+				console.log(data);
+				guideMessage = data.guideMessage;
+			},
+			error : function(data) {
+				alert("Some error occured.");
+			}
+		});
+	   	document.getElementById("dialogueBox").innerHTML = "Alastor: " + guideMessage;
       document.getElementById("battleOptions").style.display = 'none';
       document.getElementById("playercard").style.display = 'none';
       document.getElementById("ground").style.display = 'block';

@@ -33,7 +33,7 @@ public class PopulateMap {
 		
 		for (Object key : npcs.keySet()) {
 			if(npcs.get(key) instanceof JSONObject) {
-				System.out.println(npcs.get(key));
+//				System.out.println(npcs.get(key));
 				JSONObject npc = (JSONObject) npcs.get(key);
 				if(npc.get("X").equals(X) || npc.get("Y").equals(Y)) {
 					return false;
@@ -140,7 +140,7 @@ public class PopulateMap {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
 		String mapData = gson.toJson(this.data);
-		System.out.println(mapData);
+//		System.out.println(mapData);
 		
 		FileWriter file = new FileWriter(Constants.projectRootPath + "/WebContent/assets/data/1/map.json");
         file.write(mapData);

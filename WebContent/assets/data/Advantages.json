@@ -1,0 +1,10 @@
+{
+	"Warrior": "HP",
+	"Scholar": "Speed",
+	"Royalty": "HP",
+	"Merchant": "Speed",
+	"Fire": "Earth",
+	"Earth": "Electric",
+	"Electric": "Water",
+	"Water": "Fire"
+}

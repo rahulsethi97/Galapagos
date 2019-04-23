@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="./assets/css/story.css">
+    
     <title>Phaser Template</title>
 
     <style>
@@ -84,9 +85,17 @@
       </div>
       <div class="grid-item item3">
         <div id="game-container"></div>
+	        <div class="backdrop">
+			  <div id="popdiv">
+			  	<div id = "storyTitle"></div>
+			  	<div id = "storyContent" style = "text-align: left"></div>
+			    <button id="but2">Close</button>
+			</div>
+		</div>
       </div>
       <div class="grid-item item4">
-      	Story
+      	<div id = "dialogueBox">
+      	</div>
       </div>
     </div>
     

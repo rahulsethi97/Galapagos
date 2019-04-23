@@ -1,362 +1,362 @@
 {
   "22": {
-    "Speed": "2",
-    "Type": "Water",
-    "Race": "Scholar",
-    "HP": "12",
+    "Speed": "3",
+    "Type": "Electric",
+    "Race": "Merchant",
+    "HP": "65",
     "Offense": "11",
-    "Defense": "3",
-    "Name": "The prophet"
+    "Defense": "5",
+    "Name": "King Slayer"
   },
   "23": {
-    "Speed": "1",
-    "Type": "Earth",
-    "Race": "Royalty",
-    "HP": "59",
-    "Offense": "12",
-    "Defense": "5",
-    "Name": "The prophet"
-  },
-  "24": {
-    "Speed": "1",
+    "Speed": "5",
     "Type": "Fire",
     "Race": "Merchant",
-    "HP": "52",
-    "Offense": "12",
+    "HP": "81",
+    "Offense": "15",
     "Defense": "1",
+    "Name": "The Wizard"
+  },
+  "24": {
+    "Speed": "4",
+    "Type": "Fire",
+    "Race": "Warrior",
+    "HP": "27",
+    "Offense": "14",
+    "Defense": "4",
     "Name": "The prophet"
   },
   "25": {
-    "Speed": "2",
+    "Speed": "3",
     "Type": "Earth",
-    "Race": "Merchant",
-    "HP": "60",
-    "Offense": "13",
-    "Defense": "2",
+    "Race": "Warrior",
+    "HP": "93",
+    "Offense": "11",
+    "Defense": "3",
     "Name": "King Slayer"
   },
   "26": {
-    "Speed": "3",
-    "Type": "Electric",
-    "Race": "Warrior",
-    "HP": "80",
-    "Offense": "14",
+    "Speed": "1",
+    "Type": "Earth",
+    "Race": "Royalty",
+    "HP": "66",
+    "Offense": "15",
     "Defense": "4",
-    "Name": "King Slayer"
+    "Name": "The prophet"
   },
   "27": {
-    "Speed": "3",
+    "Speed": "1",
+    "Type": "Water",
+    "Race": "Warrior",
+    "HP": "34",
+    "Offense": "12",
+    "Defense": "1",
+    "Name": "King Slayer"
+  },
+  "28": {
+    "Speed": "2",
     "Type": "Fire",
     "Race": "Royalty",
-    "HP": "57",
-    "Offense": "15",
+    "HP": "80",
+    "Offense": "10",
+    "Defense": "2",
+    "Name": "The prophet"
+  },
+  "29": {
+    "Speed": "5",
+    "Type": "Earth",
+    "Race": "Warrior",
+    "HP": "91",
+    "Offense": "13",
     "Defense": "2",
     "Name": "The Wizard"
   },
-  "28": {
-    "Speed": "1",
-    "Type": "Electric",
-    "Race": "Warrior",
-    "HP": "23",
-    "Offense": "13",
-    "Defense": "3",
-    "Name": "King Slayer"
-  },
-  "29": {
-    "Speed": "1",
-    "Type": "Earth",
-    "Race": "Scholar",
-    "HP": "31",
-    "Offense": "13",
-    "Defense": "3",
-    "Name": "The Lord"
-  },
   "30": {
-    "Speed": "4",
-    "Type": "Earth",
-    "Race": "Scholar",
-    "HP": "45",
+    "Speed": "2",
+    "Type": "Electric",
+    "Race": "Royalty",
+    "HP": "29",
     "Offense": "14",
-    "Defense": "3",
-    "Name": "King Slayer"
+    "Defense": "5",
+    "Name": "The Wizard"
   },
   "31": {
-    "Speed": "2",
-    "Type": "Earth",
+    "Speed": "5",
+    "Type": "Fire",
     "Race": "Merchant",
-    "HP": "99",
+    "HP": "12",
     "Offense": "12",
-    "Defense": "5",
-    "Name": "The Lord"
+    "Defense": "1",
+    "Name": "The Wizard"
   },
   "10": {
+    "Speed": "2",
+    "Type": "Electric",
+    "Race": "Scholar",
+    "HP": "42",
+    "Offense": "12",
+    "Defense": "1",
+    "Name": "King Slayer"
+  },
+  "32": {
+    "Speed": "5",
+    "Type": "Earth",
+    "Race": "Royalty",
+    "HP": "69",
+    "Offense": "13",
+    "Defense": "3",
+    "Name": "King Slayer"
+  },
+  "11": {
     "Speed": "3",
     "Type": "Water",
     "Race": "Scholar",
-    "HP": "74",
-    "Offense": "14",
-    "Defense": "4",
-    "Name": "The prophet"
-  },
-  "32": {
-    "Speed": "3",
-    "Type": "Fire",
-    "Race": "Warrior",
-    "HP": "68",
-    "Offense": "11",
-    "Defense": "2",
-    "Name": "The prophet"
-  },
-  "11": {
-    "Speed": "5",
-    "Type": "Electric",
-    "Race": "Royalty",
-    "HP": "88",
-    "Offense": "11",
+    "HP": "52",
+    "Offense": "13",
     "Defense": "2",
     "Name": "The Lord"
   },
   "33": {
     "Speed": "3",
-    "Type": "Fire",
-    "Race": "Merchant",
-    "HP": "47",
-    "Offense": "10",
-    "Defense": "1",
-    "Name": "The Lord"
+    "Type": "Earth",
+    "Race": "Scholar",
+    "HP": "29",
+    "Offense": "14",
+    "Defense": "4",
+    "Name": "King Slayer"
   },
   "12": {
-    "Speed": "2",
-    "Type": "Electric",
-    "Race": "Warrior",
-    "HP": "64",
-    "Offense": "15",
+    "Speed": "1",
+    "Type": "Fire",
+    "Race": "Scholar",
+    "HP": "82",
+    "Offense": "14",
     "Defense": "1",
     "Name": "The Wizard"
   },
   "34": {
-    "Speed": "4",
-    "Type": "Water",
-    "Race": "Scholar",
-    "HP": "46",
-    "Offense": "15",
-    "Defense": "5",
-    "Name": "King Slayer"
-  },
-  "13": {
-    "Speed": "4",
-    "Type": "Water",
-    "Race": "Merchant",
-    "HP": "10",
-    "Offense": "12",
-    "Defense": "1",
-    "Name": "The Lord"
-  },
-  "35": {
-    "Speed": "2",
-    "Type": "Water",
-    "Race": "Scholar",
-    "HP": "77",
-    "Offense": "10",
-    "Defense": "5",
-    "Name": "King Slayer"
-  },
-  "14": {
-    "Speed": "5",
-    "Type": "Water",
-    "Race": "Royalty",
-    "HP": "13",
-    "Offense": "11",
-    "Defense": "4",
-    "Name": "King Slayer"
-  },
-  "36": {
-    "Speed": "2",
-    "Type": "Electric",
-    "Race": "Royalty",
-    "HP": "89",
-    "Offense": "10",
-    "Defense": "1",
-    "Name": "The prophet"
-  },
-  "15": {
     "Speed": "1",
     "Type": "Electric",
-    "Race": "Royalty",
+    "Race": "Merchant",
     "HP": "15",
-    "Offense": "10",
+    "Offense": "15",
+    "Defense": "3",
+    "Name": "The Lord"
+  },
+  "13": {
+    "Speed": "2",
+    "Type": "Fire",
+    "Race": "Royalty",
+    "HP": "22",
+    "Offense": "13",
     "Defense": "3",
     "Name": "King Slayer"
   },
-  "37": {
+  "35": {
     "Speed": "2",
-    "Type": "Electric",
+    "Type": "Fire",
     "Race": "Royalty",
-    "HP": "42",
-    "Offense": "11",
-    "Defense": "4",
+    "HP": "14",
+    "Offense": "15",
+    "Defense": "3",
+    "Name": "The Lord"
+  },
+  "14": {
+    "Speed": "1",
+    "Type": "Earth",
+    "Race": "Warrior",
+    "HP": "91",
+    "Offense": "12",
+    "Defense": "5",
     "Name": "The prophet"
   },
-  "16": {
-    "Speed": "1",
+  "36": {
+    "Speed": "4",
     "Type": "Water",
+    "Race": "Royalty",
+    "HP": "15",
+    "Offense": "13",
+    "Defense": "5",
+    "Name": "The Wizard"
+  },
+  "15": {
+    "Speed": "5",
+    "Type": "Fire",
+    "Race": "Warrior",
+    "HP": "92",
+    "Offense": "11",
+    "Defense": "3",
+    "Name": "The Wizard"
+  },
+  "37": {
+    "Speed": "4",
+    "Type": "Earth",
     "Race": "Merchant",
-    "HP": "90",
-    "Offense": "10",
-    "Defense": "2",
-    "Name": "The Lord"
+    "HP": "97",
+    "Offense": "14",
+    "Defense": "4",
+    "Name": "King Slayer"
+  },
+  "16": {
+    "Speed": "3",
+    "Type": "Electric",
+    "Race": "Merchant",
+    "HP": "14",
+    "Offense": "15",
+    "Defense": "3",
+    "Name": "The Wizard"
   },
   "38": {
     "Speed": "5",
     "Type": "Earth",
-    "Race": "Scholar",
-    "HP": "13",
-    "Offense": "14",
-    "Defense": "5",
-    "Name": "The Wizard"
+    "Race": "Royalty",
+    "HP": "63",
+    "Offense": "11",
+    "Defense": "3",
+    "Name": "King Slayer"
   },
   "17": {
-    "Speed": "3",
+    "Speed": "4",
     "Type": "Water",
-    "Race": "Royalty",
-    "HP": "35",
+    "Race": "Warrior",
+    "HP": "82",
     "Offense": "15",
     "Defense": "3",
     "Name": "The Lord"
   },
   "39": {
-    "Speed": "2",
-    "Type": "Electric",
-    "Race": "Royalty",
-    "HP": "94",
-    "Offense": "12",
+    "Speed": "5",
+    "Type": "Water",
+    "Race": "Warrior",
+    "HP": "67",
+    "Offense": "10",
     "Defense": "1",
     "Name": "The Wizard"
   },
   "18": {
-    "Speed": "3",
-    "Type": "Fire",
-    "Race": "Scholar",
-    "HP": "76",
-    "Offense": "12",
-    "Defense": "5",
-    "Name": "The prophet"
-  },
-  "19": {
-    "Speed": "2",
+    "Speed": "5",
     "Type": "Earth",
     "Race": "Merchant",
-    "HP": "94",
-    "Offense": "13",
-    "Defense": "1",
-    "Name": "The Wizard"
+    "HP": "73",
+    "Offense": "15",
+    "Defense": "4",
+    "Name": "The Lord"
   },
-  "1": {
-    "Speed": "5",
-    "Type": "Water",
-    "Race": "Merchant",
-    "HP": "69",
-    "Offense": "10",
+  "19": {
+    "Speed": "3",
+    "Type": "Earth",
+    "Race": "Warrior",
+    "HP": "70",
+    "Offense": "12",
     "Defense": "2",
-    "Name": "The prophet"
-  },
-  "2": {
-    "Speed": "4",
-    "Type": "Water",
-    "Race": "Scholar",
-    "HP": "22",
-    "Offense": "14",
-    "Defense": "3",
     "Name": "King Slayer"
   },
-  "3": {
-    "Speed": "2",
-    "Type": "Fire",
-    "Race": "Merchant",
-    "HP": "63",
-    "Offense": "13",
-    "Defense": "1",
+  "1": {
+    "Speed": "3",
+    "Type": "Electric",
+    "Race": "Warrior",
+    "HP": "35",
+    "Offense": "14",
+    "Defense": "4",
     "Name": "The Wizard"
+  },
+  "2": {
+    "Speed": "5",
+    "Type": "Electric",
+    "Race": "Merchant",
+    "HP": "76",
+    "Offense": "14",
+    "Defense": "1",
+    "Name": "The prophet"
+  },
+  "3": {
+    "Speed": "1",
+    "Type": "Electric",
+    "Race": "Merchant",
+    "HP": "96",
+    "Offense": "13",
+    "Defense": "5",
+    "Name": "King Slayer"
   },
   "4": {
     "Speed": "5",
     "Type": "Electric",
-    "Race": "Scholar",
-    "HP": "22",
-    "Offense": "14",
-    "Defense": "2",
+    "Race": "Warrior",
+    "HP": "60",
+    "Offense": "10",
+    "Defense": "5",
     "Name": "The prophet"
   },
   "5": {
-    "Speed": "1",
+    "Speed": "3",
     "Type": "Fire",
-    "Race": "Merchant",
-    "HP": "59",
-    "Offense": "10",
-    "Defense": "4",
-    "Name": "King Slayer"
+    "Race": "Warrior",
+    "HP": "40",
+    "Offense": "15",
+    "Defense": "2",
+    "Name": "The Wizard"
   },
   "6": {
-    "Speed": "3",
-    "Type": "Earth",
-    "Race": "Merchant",
-    "HP": "89",
-    "Offense": "12",
-    "Defense": "1",
-    "Name": "The prophet"
+    "Speed": "4",
+    "Type": "Electric",
+    "Race": "Royalty",
+    "HP": "77",
+    "Offense": "10",
+    "Defense": "3",
+    "Name": "The Lord"
   },
   "7": {
-    "Speed": "1",
-    "Type": "Water",
-    "Race": "Warrior",
-    "HP": "47",
+    "Speed": "4",
+    "Type": "Earth",
+    "Race": "Scholar",
+    "HP": "84",
     "Offense": "15",
-    "Defense": "5",
-    "Name": "King Slayer"
+    "Defense": "3",
+    "Name": "The Wizard"
   },
   "8": {
     "Speed": "2",
-    "Type": "Earth",
-    "Race": "Merchant",
-    "HP": "92",
+    "Type": "Water",
+    "Race": "Royalty",
+    "HP": "13",
     "Offense": "13",
-    "Defense": "2",
+    "Defense": "1",
     "Name": "The Wizard"
   },
   "9": {
-    "Speed": "3",
-    "Type": "Water",
-    "Race": "Merchant",
-    "HP": "11",
-    "Offense": "15",
-    "Defense": "3",
-    "Name": "The Wizard"
-  },
-  "40": {
     "Speed": "1",
     "Type": "Electric",
     "Race": "Merchant",
-    "HP": "56",
+    "HP": "74",
     "Offense": "12",
-    "Defense": "2",
-    "Name": "King Slayer"
-  },
-  "20": {
-    "Speed": "3",
-    "Type": "Fire",
-    "Race": "Scholar",
-    "HP": "51",
-    "Offense": "15",
     "Defense": "3",
     "Name": "King Slayer"
   },
+  "40": {
+    "Speed": "2",
+    "Type": "Fire",
+    "Race": "Warrior",
+    "HP": "50",
+    "Offense": "13",
+    "Defense": "5",
+    "Name": "King Slayer"
+  },
+  "20": {
+    "Speed": "5",
+    "Type": "Fire",
+    "Race": "Warrior",
+    "HP": "30",
+    "Offense": "14",
+    "Defense": "5",
+    "Name": "The Lord"
+  },
   "21": {
     "Speed": "1",
-    "Type": "Fire",
+    "Type": "Water",
     "Race": "Merchant",
-    "HP": "50",
-    "Offense": "14",
-    "Defense": "1",
-    "Name": "King Slayer"
+    "HP": "25",
+    "Offense": "11",
+    "Defense": "5",
+    "Name": "The Wizard"
   }
 }

@@ -14,4 +14,12 @@ public class Constants {
 	public static final String[] cardRaces = {"Warrior", "Royalty", "Scholar", "Merchant"};
 	
 	public static final String projectRootPath = "/home/rsethi3/eclipse-workspace/Galapagos";
+	
+	public static final String[] guideCardMessages = {	
+														"Nice.!! That's a really nice card you got.", 
+														"You just collected a very rare card over there.", 
+														"You are one step closer to your goal.", 
+														"You might want to hold on to that.",
+														"Remember you can check inventory anytime."
+													 };
 }

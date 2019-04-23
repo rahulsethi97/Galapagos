@@ -45,7 +45,7 @@ function preload() {
   this.load.atlas("atlas", "./assets/atlas/atlas.png", "./assets/atlas/atlas.json");
 }
 
-
+var mapData;
 
 function create() {
   const map = this.make.tilemap({ key: "map" });
@@ -143,7 +143,7 @@ function create() {
   	var npcsAvailable;
   	var inventory;
   	
-  	var mapData;
+  	
 	jQuery.ajax({
 		type : "GET",
 		url : "populateMap",
@@ -253,22 +253,29 @@ function update(time, delta) {
 }
 
 function collectCard (player, a){
-  var id = "" + a.name
-  
+  var id = "" + a.name;
+  var guideMessage;
+  var cardDetails;
   jQuery.ajax({
 		type : "GET",
 		url : "collectCard",
+		async: false,
 		data: {card_id : id},
 		success : function(data) {
-			console.log("here");
+			console.log(data.cardDetails);
+			cardDetails = data.cardDetails;
+			guideMessage = data.guideMessage;
 		},
 		error : function(data) {
 			alert("Some error occured.");
 		}
-	});
+  });
   
   alert("Card " + id + " Collected");
   a.disableBody(true, true);
+  
+  document.getElementById("dialogueBox").innerHTML = guideMessage; 
+  
 }
 
 
@@ -282,6 +289,7 @@ function battlenpc(player , npc){
 			console.log(data);
 			player.x = parseInt(data.new_x);
 			player.y = parseInt(data.new_y);
+			storeCurrentLocation();
 		},
 		error : function(data) {
 			alert("Some error occured.");
@@ -294,39 +302,38 @@ function battlenpc(player , npc){
   
   overlapTriggered = true;
   var npc_name = "" + npc.name;
-  ConfirmDialog("Do you want to battle " + npc_name + "?" , npc, player);
+  ConfirmDialog("Do you want to battle?" , npc, player);
   
 }
 
 
 
 function ConfirmDialog(message , npc, player){
-    $('<div></div>').appendTo('body')
-      .html('<div><h6>'+message+'?</h6></div>')
-      .dialog({
-        modal: true, title: 'Delete message', zIndex: 10000, autoOpen: true,
-        width: 'auto', resizable: false,
-        buttons: {
-            Yes: function () {
-                console.log('Yes');
-                overlapTriggered = false;
-                
-                window.location.href = "/Galapagos/battle.jsp"
-                
-                $(this).dialog("close");
-            },
-            No: function () {                                               
-                console.log('No');
-                overlapTriggered = false;
-                $(this).dialog("close");  
-            }
-        },
-        close: function (event, ui) {
-            overlapTriggered = false;
-            $(this).remove();
-        }
-    });
-
+	$('<div></div>').appendTo('body')
+    .html('<div><h6>'+message+'?</h6></div>')
+    .dialog({
+      modal: true, title: 'Battle', zIndex: 10000, autoOpen: true,
+      width: 'auto', resizable: false,
+      buttons: {
+          Yes: function () {
+              console.log('Yes');
+              overlapTriggered = false;
+              
+              window.location.href = "/Galapagos/battle.jsp"
+              
+              $(this).dialog("close");
+          },
+          No: function () {                                               
+              console.log('No');
+              overlapTriggered = false;
+              $(this).dialog("close");  
+          }
+      },
+      close: function (event, ui) {
+          overlapTriggered = false;
+          $(this).remove();
+      }
+  });
 };
 
 
@@ -344,3 +351,35 @@ function storeCurrentLocation(){
 	});
 }
 
+jQuery(window).load(function() {
+	var storyData;
+	var flag = "0";
+	jQuery.ajax({
+		type : "GET",
+		url : "showStory",
+		async: false,
+		data: {level: mapData.level},
+		success : function(data) {
+			console.log(data);
+			storyData = data;
+			flag = data.show_story;
+		},
+		error : function(data) {
+			alert("Some error occured.");
+		}
+	});
+	
+	console.log(flag);
+	
+	if(flag == "1"){
+		//Code to show story
+		$(".backdrop").fadeTo(200, 1);
+		document.getElementById("storyTitle").innerHTML = "Title: " + storyData.title;
+		document.getElementById("storyContent").innerHTML = storyData.story;
+	}
+});
+
+
+$("#but2").click(function() {
+	$(".backdrop").fadeOut(200);
+});

@@ -110,7 +110,7 @@
 	       </div>
 	    </div>
 		<div class="grid-item item4">
-      		Story
+      		Alastor: Welcome to the inventory. You can click on the cards to see its details...!!
     	</div>
      </div>
     

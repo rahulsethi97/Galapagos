@@ -1,6 +1,7 @@
 {
   "level": "1",
   "npc_battling": "-1",
+  "show_story": "1",
   "inventory": [],
   "currentpos": {
     "X": "352",

@@ -33,5 +33,19 @@
 	  <action name="startBattle" class="map.StartBattle">
 		<result name="success" type="json">/battle.jsp</result>
 	  </action>
+	  
+	  <action name="showStory" class="map.ShowStory">
+		<result name="success" type="json">/map.jsp</result>
+	  </action>
+	  
+	  <action name="getGuideMessage" class="map.GetBattleGuidance">
+		<result name="success" type="json">/battle.jsp</result>
+	  </action>
+	  
+	  
+	  <action name="getStoryBattle" class="map.GetStory">
+		<result name="success" type="json">/battle.jsp</result>
+	  </action>
+	  
    </package>
 </struts>
