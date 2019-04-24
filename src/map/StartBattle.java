@@ -4,10 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import battleEngine.*;
 import proceduralGenerator.Constants;
 import proceduralGenerator.StartProceduralGenerator;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -88,6 +91,37 @@ public class StartBattle {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
+	public void removeCardFromMap() throws FileNotFoundException, IOException, ParseException {
+		JSONParser jsonParser = new JSONParser();
+		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/map.json"));
+		JSONObject data = (JSONObject)obj;
+		
+		JSONArray inventory = (JSONArray) data.get("inventory");
+		
+		JSONArray list = new JSONArray();     
+		int len = inventory.size();
+		if (inventory != null) { 
+		   for (int i=0;i<len;i++){ 
+			   if(!(inventory.get(i).toString().equals(player_card_id))) {
+				   list.add(inventory.get(i));
+			   }
+		   } 
+		}
+		
+		data.put("inventory", list);
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+		String newMapJSONData = gson.toJson(data);
+		
+		FileWriter file = new FileWriter(Constants.projectRootPath + "/WebContent/assets/data/1/map.json");
+        file.write(newMapJSONData);
+        file.flush();
+        file.close();
+		
+	}
+	
 	
 	public String getWinner() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
@@ -119,7 +153,6 @@ public class StartBattle {
 		if(winner.equals("Card2")) {
 			BattleBanter bb = new BattleBanter(npcCard, playerCard);
 			this.lostConversation = bb.retBanter();
-			System.out.println(java.util.Arrays.toString(this.lostConversation));
 		}
 		
 		return winner;
@@ -127,6 +160,7 @@ public class StartBattle {
 	
 	public void startBattle() throws FileNotFoundException, IOException, ParseException {
 		removeNPCFromJSON();
+		removeCardFromMap();
 		this.result = getWinner();
 		if(result == "Card1") {
 			StartProceduralGenerator gameEngine = new StartProceduralGenerator(level+1);

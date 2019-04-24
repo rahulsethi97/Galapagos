@@ -374,7 +374,7 @@ jQuery(window).load(function() {
 	if(flag == "1"){
 		//Code to show story
 		$(".backdrop").fadeTo(200, 1);
-		document.getElementById("storyTitle").innerHTML = "Title: " + storyData.title;
+		document.getElementById("storyTitle").innerHTML = "<strong>Chapter: " + storyData.title + "</strong>";
 		document.getElementById("storyContent").innerHTML = storyData.story;
 	}
 });

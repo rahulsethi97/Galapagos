@@ -143,7 +143,7 @@
     var htmlCode = "";
     //<img src = "./assets/images/battlecard.jpg") style="height: 100%; width: 100%; object-fit: contain">
     for (key in inventoryData) {
-    	htmlCode += '<div onclick = "showCard(' + key + ');" style="font-size:15px"><div class="box"><img src = "./assets/images/battlecard.jpg") style="height: 100%; width: 100%; object-fit: contain"></div>' + inventoryData[key].Name + '</div>';
+    	htmlCode += '<div onclick = "showCard(' + key + ');" style="color:white;font-size:15px"><div class="box"><img src = "./assets/images/battlecard.jpg") style="height: 100%; width: 100%; object-fit: contain"></div>' + inventoryData[key].Name + '</div>';
     }
 
     document.getElementById("cardList").innerHTML = htmlCode;

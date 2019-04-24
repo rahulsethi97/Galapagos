@@ -72,6 +72,20 @@
         width:200px;
         color: white;
       }
+      
+      .battleOptionsButton{
+			color: white;
+			height: 4em;
+			width: 15%;
+			padding: 1.5em auto;
+			margin: 1em auto;
+			background-color: #0f0606cf;
+			border: none;
+			border-radius: 3px;
+			text-transform: uppercase;
+		  	letter-spacing: 0.5em;
+		}
+      
     </style>
   </head>
 
@@ -89,7 +103,7 @@
 			  <div id="popdiv">
 			  	<div id = "storyTitle"></div>
 			  	<div id = "storyContent" style = "text-align: left"></div>
-			    <button id="but2">Close</button>
+			    <button class = "battleOptionsButton" id="but2">Continue</button>
 			</div>
 		</div>
       </div>

@@ -76,5 +76,36 @@ h1{
 	font-family: sans-serif;
 }
 
+.battleButton{
+	margin-top: -50px;
+}
+
+.battleButton button{
+	color: white;
+	height: 4em;
+	width: 10%;
+	padding: 1.5em auto;
+	margin: 1em auto;
+	background-color: #0f0606cf;
+	border: none;
+	border-radius: 3px;
+	text-transform: uppercase;
+  	letter-spacing: 0.5em;
+}
+
+.battleOptionsButton{
+	color: white;
+	height: 4em;
+	width: 10%;
+	padding: 1.5em auto;
+	margin: 1em auto;
+	background-color: #0f0606cf;
+	border: none;
+	border-radius: 3px;
+	text-transform: uppercase;
+  	letter-spacing: 0.5em;
+}
+
+
 
 

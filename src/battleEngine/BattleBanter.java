@@ -39,7 +39,7 @@ public class BattleBanter {
 	public String[] retBanter()
 	{
 		String domParam = getDominatingParameter();
-		System.out.println(domParam);
+//		System.out.println(domParam);
 		String input1 = "What made you think you could have defeated my" + domParam + "?. Well! Giving you a tough fight was in itself a victory. You loser! Think anything to make yourself feel better, however,the facts won't change.";
 		String[] str1 = input1.split("\\.");
 		
@@ -71,9 +71,9 @@ public class BattleBanter {
 		mylist.add(str6); 
 		mylist.add(str7); 
 		
-		for(String[] model : mylist) {
-			System.out.println(java.util.Arrays.toString(model));
-        }
+//		for(String[] model : mylist) {
+//			System.out.println(java.util.Arrays.toString(model));
+//		}
 		
 		Collections.shuffle(mylist);
 		return mylist.get(0);      

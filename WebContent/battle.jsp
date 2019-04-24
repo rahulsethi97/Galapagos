@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/battle.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/battle_card.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/story.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/conversation.css">
     <title>Phaser Template</title>
 
     <style>
@@ -125,8 +126,8 @@
 			</div>
           </div>
           <div id = "battleOptions" style = "display:none;color:white">
-          	<div onclick = "chooseCard();"><button>Choose Another Card</button></div>
-		  	<div onclick = "startBattle();"><button>Begin</button></div>
+          	<div onclick = "chooseCard();"><button class = "battleOptionsButton">Change Card</button></div>
+		  	<div onclick = "startBattle();"><button class = "battleOptionsButton">Begin</button></div>
           </div>
         </div>
       </div>
@@ -191,9 +192,12 @@
 			}
 		});
 		
-		var htmlCode = '';
+		var htmlCode = '<div class="outerbg">' +
+					 	'<div class="chatboxout">' +
+				    		'<div class="chatboxin">';
 		var afterBattle;
 		if(result == "Card2"){
+			document.getElementById("dialogueBox").innerHTML = "Alastor: You did a good job reaching till here. Maybe I have to wait for someone else to stop this organization";
 			document.getElementById("mycenter").innerHTML = '<a style = "text-decoration: none;color: white" href = "/Galapagos" >Restart</a>'
 			message = "You Lost";
 			afterBattle = lostConversation;
@@ -201,13 +205,28 @@
 			
 			for (var i = 0; i < afterBattle.length; i++) {
 			      if((i%2) == 0){
-			      	htmlCode += '<div class="villainc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			      	htmlCode += '<div class="chat-container" id = "' + 2*i + '" style="visibility:hidden">' +
+				        			'<div class="chat-respond msg">' +
+					        			'<div class="flippd">' +
+											'<div class="chatmsg">'	+ afterBattle[i] +
+											'</div>' +
+										'</div>' +  
+									'</div>' +
+								'</div>';
 			      }else{
-			      	htmlCode += '<div class="playerc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			      	htmlCode += '<div class="chat-container" id = "' + 2*i + '" style="visibility:hidden">' +
+				        			'<div class="chat-sender msg">' +
+										'<div class="chatmsg">'	+ afterBattle[i] +
+										'</div>' + 
+									'</div>' +
+								'</div>';
 			      }
 			}
-			
+
+			htmlCode += '</div></div></div>';
+			htmlCode += '<div class = "battleButton" id="BattleButton" style="visibility:hidden"><button onclick="restart();">Restart</button></div>';
 		}else{
+			document.getElementById("dialogueBox").innerHTML = "Alastor: Attaboy..!! We are one step closer to finish this mission.";
 			message = "You Won";
 			afterBattle = battleStory.after_battle.split("#");
 			var after_battle_init = battleStory.after_battle_init;
@@ -215,22 +234,48 @@
 			if(after_battle_init == "1"){//Player Starts
 			 for (var i = 0; i < afterBattle.length; i++) {
 			       if((i%2) == 0){
-			       	htmlCode += '<div class="playerc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			       	htmlCode += '<div class="chat-container" id = "' + 2*i + '" style="visibility:hidden">' +
+				        			'<div class="chat-sender msg">' +
+										'<div class="chatmsg">'	+ afterBattle[i] +
+										'</div>' + 
+									'</div>' +
+								'</div>'
 			       }else{
-			       	htmlCode += '<div class="villainc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			       	htmlCode += '<div class="chat-container" id = "' + 2*i + '" style="visibility:hidden">' +
+				        			'<div class="chat-respond msg">' +
+					        			'<div class="flippd">' +
+											'<div class="chatmsg">'	+ afterBattle[i] +
+											'</div>' +
+										'</div>' +  
+									'</div>' +
+								'</div>'
 			       }
 			 }
 			}else{//Opponent Starts
 			 for (var i = 0; i < afterBattle.length; i++) {
 			       if((i%2) == 0){
-			       	htmlCode += '<div class="villainc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			       	htmlCode += '<div class="chat-container" id = "' + 2*i + '" style="visibility:hidden">' +
+				        			'<div class="chat-respond msg">' +
+					        			'<div class="flippd">' +
+											'<div class="chatmsg">'	+ afterBattle[i] +
+											'</div>' +
+										'</div>' +  
+									'</div>' +
+								'</div>'
 			       }else{
-			       	htmlCode += '<div class="playerc" id = "' + 2*i + '" style="visibility:hidden">' + afterBattle[i] + '</div><br>'
+			       	htmlCode += '<div class="chat-container" id = "' + 2*i + '" style="visibility:hidden">' +
+				        			'<div class="chat-sender msg">' +
+										'<div class="chatmsg">'	+ afterBattle[i] +
+										'</div>' + 
+									'</div>' +
+								'</div>'
 			       }
 			 }
 			}
+
+			htmlCode += '</div></div></div>'
+			htmlCode += '<div class = "battleButton" id="BattleButton" style="visibility:hidden"><button onclick="goToMap();">Continue</button></div>';
 		}
-		
 		
 	      
 	    document.getElementById("playercard").style.display = "none";
@@ -244,7 +289,15 @@
 	    for (var i = 0; i < afterBattle.length; i++) {
 	  	  showText("" + 2*i,i+1);
 	    }
-		
+	    showText('BattleButton',afterBattle.length + 1);
+	}
+	
+	function goToMap(){
+		window.location.href = "/Galapagos/map.jsp";
+	}
+	
+	function restart(){
+		window.location.href = "/Galapagos";
 	}
 	
     function showText(id,delay)
@@ -252,6 +305,7 @@
       var elem=document.getElementById(id);
       myVar = setTimeout(function(){elem.style.visibility='visible';},delay*1000)
     }
+    
     window.onload=function()
     {
     	
@@ -271,26 +325,57 @@
     	
 	      var beforeBattleConversation = battleStory.battle_conversation.split("#");
 	      var before_battle_init = battleStory.before_battle_init;
-	      var htmlCode = "<div>";
+	      var htmlCode = '<div class="outerbg">' +
+						 	'<div class="chatboxout">' +
+					        	'<div class="chatboxin">';
 	      if(before_battle_init == "1"){//Player Starts
 	    	  for (var i = 0; i < beforeBattleConversation.length; i++) {
 	    	        if((i%2) == 0){
-	    	        	htmlCode += '<div class="playerc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
+	    	        	htmlCode += '<div class="chat-container" id = "' + i + '" style="visibility:hidden">' +
+	    	                			'<div class="chat-sender msg">' +
+	    	            					'<div class="chatmsg">'	+ beforeBattleConversation[i] +
+	    	            					'</div>' + 
+	    	            				'</div>' +
+	    	            			'</div>';
+	    	        	//htmlCode += '<div class="playerc" >' + beforeBattleConversation[i] + '</div><br>'
 	    	        }else{
-	    	        	htmlCode += '<div class="villainc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
+	    	        	htmlCode += '<div class="chat-container" id = "' + i + '" style="visibility:hidden">' +
+				            			'<div class="chat-respond msg">' +
+					            			'<div class="flippd">' +
+		            							'<div class="chatmsg">'	+ beforeBattleConversation[i] +
+		            							'</div>' +
+		            						'</div>' +  
+				        				'</div>' +
+				        			'</div>';
 	    	        }
 	    	  }
 	      }else{//Opponent Starts
 	    	  for (var i = 0; i < beforeBattleConversation.length; i++) {
 		   	        if((i%2) == 0){
-		   	        	htmlCode += '<div class="villainc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
+		   	        	htmlCode += '<div class="chat-container" id = "' + i + '" style="visibility:hidden">' +
+				            			'<div class="chat-respond msg">' +
+					            			'<div class="flippd">' +
+				    							'<div class="chatmsg">'	+ beforeBattleConversation[i] +
+				    							'</div>' +
+				    						'</div>' +  
+				        				'</div>' +
+				        			'</div>';
+		   	        	//htmlCode += '<div class="villainc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
 		   	        }else{
-		   	        	htmlCode += '<div class="playerc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
+		   	        	htmlCode += '<div class="chat-container" id = "' + i + '" style="visibility:hidden">' +
+				            			'<div class="chat-sender msg">' +
+				        					'<div class="chatmsg">'	+ beforeBattleConversation[i] +
+				        					'</div>' + 
+				        				'</div>' +
+				        			'</div>';
+		   	        	//htmlCode += '<div class="playerc" id = "' + i + '" style="visibility:hidden">' + beforeBattleConversation[i] + '</div><br>'
 		   	        }
 		   	  }
 	      }
 	      
-	      htmlCode += '</div><div id="BattleButton" style="visibility:hidden"><button onclick="chooseCard();">Start Battle</button></div>';
+	      htmlCode += '</div></div></div>'
+	      
+	      htmlCode += '<div class = "battleButton" id="BattleButton" style="visibility:hidden"><button onclick="chooseCard();">Start Battle</button></div>';
 	      
 	      document.getElementById("ground").innerHTML = htmlCode;
 	      
@@ -300,7 +385,7 @@
 	    	  showText("" + i,i+1);
 	      }
 	      
-	      showText('BattleButton',4);
+	      showText('BattleButton',beforeBattleConversation.length + 1);
     }
 
     function battle(cardId){
@@ -336,7 +421,7 @@
 				alert("Some error occured.");
 			}
 		});
-	   	document.getElementById("dialogueBox").innerHTML = "Alastor: " + guideMessage;
+ 	  document.getElementById("dialogueBox").innerHTML = "Alastor: " + guideMessage;
       document.getElementById("battleOptions").style.display = 'none';
       document.getElementById("playercard").style.display = 'none';
       document.getElementById("ground").style.display = 'block';
@@ -348,7 +433,7 @@
 
       
       for (key in inventoryData) {
-      	htmlCode += '<div onclick = "battle(' + key + ');" style="font-size:15px"><div class="box"><img src = "./assets/images/battlecard.jpg") style="height: 100%; width: 100%; object-fit: contain"></div>' + inventoryData[key].Name + '</div>';
+      	htmlCode += '<div onclick = "battle(' + key + ');" style="color:white;font-size:15px"><div class="box"><img src = "./assets/images/battlecard.jpg") style="height: 100%; width: 100%; object-fit: contain"></div>' + inventoryData[key].Name + '</div>';
       }
       
 
