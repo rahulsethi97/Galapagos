@@ -1,9 +1,10 @@
 package map;
 
+
+import org.apache.struts2.ServletActionContext;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -46,7 +47,7 @@ public class StoreLocation {
 	public String execute() throws Exception {
 //		System.out.println(X + " - " + Y);
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/map.json"));
+		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
 		JSONObject data = (JSONObject)obj;
 		
 		JSONObject currentLoc = (JSONObject) data.get("currentpos");
@@ -62,7 +63,7 @@ public class StoreLocation {
 		String newMapJSONData = gson.toJson(data);
 //		System.out.println(newMapJSONData);
 		
-		FileWriter file = new FileWriter(Constants.projectRootPath + "/WebContent/assets/data/1/map.json");
+		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
         file.write(newMapJSONData);
         file.flush();
         file.close();

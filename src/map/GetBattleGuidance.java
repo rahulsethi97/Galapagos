@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.apache.struts2.ServletActionContext;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -33,7 +34,7 @@ public class GetBattleGuidance {
 	
 	public void populateGuideMessage() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject cards = (JSONObject) jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/cards.json"));
+		JSONObject cards = (JSONObject) jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json"));
 		JSONObject npcCardDetails = (JSONObject) cards.get(this.npcCardId);
 		
 		String npcRace = (String) npcCardDetails.get("Race");

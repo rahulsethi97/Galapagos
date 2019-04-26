@@ -47,5 +47,17 @@
 		<result name="success" type="json">/battle.jsp</result>
 	  </action>
 	  
+	  <action name="getIntro" class="map.IntroAndEndStory">
+		<result name="success" type="json">/index.jsp</result>
+	  </action>
+	  
+	  <action name="moveAway" class="map.MovePlayer">
+		<result name="success" type="json">/map.jsp</result>
+	  </action>
+	  
+	  <action name="restart" class="map.Restart">
+		<result name="success" type="json">/map.jsp</result>
+	  </action>
+	  
    </package>
 </struts>

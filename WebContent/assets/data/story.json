@@ -1,59 +1,72 @@
 {
-	"0": "Welcome to Galapagos, the mystical island! The island is relatively unknown to the outer world. Your name is ABC and you’re the descendant of the former rulers of  Galapagos. Your dynasty had control of the island several centuries ago and through magical visions you’ve discovered of its ability to produce some very powerful cards. While your family was in control of the island, these cards were used as tools to advance civilization, and their usage was limited to the island. However, in recent times, invaders have taken control of the island and are using the cards for their illicit businesses. The cartel currently in control of the island intend to use these cards and their powers against the innocent outside the island. Your mission should you choose to accept it, is to stop the mining, trafficking and use of these cards outside the island! Alastor is your guide and although there’s something weird about him, he is by your side to guide you through your discovery and quests on this island.",
+	"0": "Welcome to Galapagos, the mystical island! The island is relatively unknown to the outer world. Your name is Percy and you are the descendant of the former rulers of Galapagos. Your dynasty had control of the island several centuries ago and through magical visions you’ve discovered of its ability to produce some very powerful cards. While your family was in control of the island, these cards were used as tools to advance civilization, and their usage was limited to the island. However, in recent times, invaders have taken control of the island and are using the cards for their illicit businesses. The cartel currently in control of the island intend to use these cards and their powers against the innocent outside the island. Your mission should you choose to accept it, is to stop the mining, trafficking and use of these cards outside the island! There are cards distributed on random places all over the island, which will aide you in your quest.  Poseidon is your guide and although there’s something weird about him, he is by your side to guide you through your discovery and quests on this island.",
 	"1":{
-		"title": "The Spy",
-		"story": "Alastor: I’m glad you’ve arrived. The first quest in your journey is to find and defeat ZELUS, who serves as the spy master for DIONYSUS, your final opponent. He is feared by nobles and common people alike. He is a skilled manipulator and commands a network of spies across the island.",
-		"battle_conversation": "Zelus: I’ve been expecting you, ABC. What took you so long?#ABC: Glad to be here!#Zelus: Do you really think you could walk all over me with the cards you have collected?#ABC: Is lip-service all you do?",
+		"title": "Argus-The Guard",
+		"story": "Poseidon: I’m glad you’ve arrived. The first quest in your journey is to find and defeat Argus, who acts as a Guardian of the island. Argus is precise, deadly and one of the deadliest assassins this world has ever seen. He is trained to be proficient with various weapons. In battle he focus primarily on his sword play, preferring close combat to long scale fight. He posses great speed and is not easy to defeat.",
+		"battle_conversation": "Argus: Who the hell are you?#Percy: I am Satan, I came here to free your soul from your body.#Argus: hahahahahhahahahaha, I am the devil, look at me and scream if you wish.#Percy: Another joke, you are not even worth my anger.#Argus: I will beat you and perhaps I will kill you.",
 		"before_battle_init": "0",
-		"after_battle": "ABC: I hate to say “I told you so”, I’m going to sing it instead. Now, do you want to tell me who is my next opponent or shall I crush you again?#Zelus: Fine young lad, your next opponent is Brutus.#ABC: You don’t mean Junius Brutus, do you?#Zelus: Yes, Junius Brutus, your old friend. You should be impressed with him, his ascendance on this island has been quite speedy.",
-		"after_battle_init": "1"
+		"after_battle": "Argus: you think you will come here and free this island from the power of Hades. More you go further, more you are getting trapped. hahahahhaha Luke will be happy to see you....hahahahaha#Percy: You don’t mean Luke Castellan, do you?#Argus: Yes, Luke Castellan, your old friend. You should be impressed with him, his ascendance on this island has been quite speedy.",
+		"after_battle_init": "0"
 	},
 	"2":{
 		"title": "An Old Friend",
-		"story": "Friend Story yet to be inserted.",
-		"battle_conversation": "ABC: Et tu Brute?#Brutus: Desperate times call for desperate measures, ABC.#ABC: Is power and greed far more superior than our friendship?#Brutus: I guess it is. If you want you can end this nonsense and join us too.#ABC: My blood is far more purer than yours.#Brutus: No more chit chat, let’s get this over with.",
+		"story": "Luke Castellan is an old friend of yours. He used to go to the same school as you and used to train with you. He is the son of Hermes. Like you, he was also a champion of honesty and truth. But power and greed has overtaken him and polluted his mind. He is quick and is responsible for giving access to this island to Kronos.",
+		"battle_conversation": "Percy: Et tu Luke?#Luke: Desperate times call for desperate measures, Percy.#Percy: Is power and greed far more superior than our friendship?#Luke: I guess it is. If you want you can end this nonsense and join us too.#Percy: My blood is far more purer than yours.#Luke: No more chit chat, let’s get this over with.",
 		"before_battle_init": "1",
-		"after_battle": "ABC: Well as they say bad meets evil. Do you wanna value our friendship and the good old days or the human inside you is dead?#Brutus: Well, love is evol spell it backwards.#ABC: WTF? Eminem?#Brutus: Yeah in human world they call me MnM.#ABC: Damn bro, big fan here.#Brutus: Thanks, do you wanna know your next opponent?#ABC: Yeah, that would be really sick.",
+		"after_battle": "Percy: Well as they say bad meets evil. Do you wanna value our friendship and the good old days or the human inside you is dead?#Luke: I am far away from home.#Percy: You can redeem yourself by telling me who is my next opponent?#Luke: As a token of our friendship, I will tell you about your next opponent. He is Octavian.",
 		"after_battle_init": "1"
 	},
 	"3":{
-		"title": "Gaurd",
-        "story": "He is one of the closet advisor to Dionysus. Swift, stealthy and exceptionally lethal. Once he was as great as his fame made him. His knowledge was deep and his hands marvelously skilled. But his pride and arrogance turned him into a traitor. He is a Man of Skill and master at manipulating life.",
-        "battle_conversation": "Gaurd: Who the hell are you?#ABC: I am Satan, I came here to free your soul from your body.#Guard: hahahahahhahahahaha, I am the devil, look at me and scream if you wish.#ABC: lol, kids these days.#Guard: Surrender to me and I will let you live.#ABC: Another joke, you are not even worth my anger.#Guard: I will beat you and perhaps I will kill you.#ABC: you don’t frighten me and you are not going to win.",
+		"title": "Zelus-The Spy",
+        "story": "Zelus who serves as the spy master for Hades, your final opponent. He is feared by nobles and common people alike. He is a skilled manipulator and commands a network of spies across the island.",
+        "battle_conversation": "Zelus: I’ve been expecting you, Percy. What took you so long?#Percy: Glad to be here!#Zelus: Do you really think you could walk all over me with the cards you have collected?#Percy: Is lip-service all you do?",
         "before_battle_init": "0",
-        "after_battle": "Guard: you think you will come here and free this island from the power of Dionysus. More you go further, more you are getting trapped. hahahahhaha Falcone will be happy to see you....hahahahaha#ABC: yes,I will but you will not be here to see it.",
-        "after_battle_init": "0"
+        "after_battle": "Percy: I hate to say “I told you so”, I’m going to sing it instead. Now, do you want to tell me who is my next opponent or shall I crush you again?#Zelus: Fine young lad, your next opponent is .",
+        "after_battle_init": "1"
 	},
 	"4":{
-		"title": "Advisor",
-	    "story": "Precise, deadly and one of the deadliest assassins this world has ever seen. He is trained to be proficient with various weapons. In battle he focus primarily on his sword play, preferring close combat to long scale fight. He posses great speed and is not easy to defeat.",
-	    "battle_conversation": "Advisor: Welcome Hommie, I was expecting you. what took you so long?#ABC: ahhh I didn’t know that you were missing me dude, I am flattered by the attention.#Advisor: Come join us and you will see yourself lying on the bed of money.#ABC: you think money motivates me, Get ready to die Falcone.#Advisor: I think we both know how is gonna end, You are going down#ABC: I will not fail and I am not afraid of you and I will do whatever it takes.#Advisor: Lets begin then.",
+		"title": "Octavian the advisor",
+	    "story": "He is one of the closest advisor to Hades. Swift, stealthy and exceptionally lethal. Once he was as great as his fame made him. His knowledge was deep and his hands marvelously skilled. But his pride and arrogance turned him into a traitor.",
+	    "battle_conversation": "Octavian: Welcome Homie, I was expecting you. What took you so long?#Percy: ahhh I didn’t know that you were missing me dude, I am flattered by the attention.#Octavian: Come join us and you will see yourself lying on the bed of money.#Percy: you think money motivates me, Get ready to die Octavian.#Octavian: I think we both know how it's gonna end, You are going down.#Percy: I will not fail and I am not afraid of you and I will do whatever it takes.",
 	    "before_battle_init": "0",
-	    "after_battle": "Advisor: You have no idea what you did, Dionysus is going to kill you at end but first you should face Hermes, the Trafficker.",
+	    "after_battle": "Octavian: You have no idea what you did, Hades is going to kill you at end but first you should face Hermes, the Trafficker.",
 	    "after_battle_init": "0"
 	},
 	"5":{
 		"title": "Trafficker",
-	    "story": "Hermes is an enormously powerful being with a very powerful card and though at first he might look like an old man but his true form is that of a powerful mystical creature. He is the master of trade and border crossings and is a messenger of  DIONYSUS.",
-	    "battle_conversation": "Hermes: You have come a long way. It would be a pity to see you go back to square one.#ABC: I have not come here to go back, Hermes. I have come here to defeat the evil.#Hermes: Woah! cOmE hErE tO DeFeaT tHe EviL! Are you a Tolkien Fan or what?#ABC: I don’t know whether you are good at this but you are definitely not good at comebacks. Now let’s battle or do you wanna settle this with trash talk? Psst: You are gonna lose in trash talk.",
+	    "story": "Hermes is an enormously powerful being with a very powerful card and though at first he might look like an old man but his true form is that of a powerful mystical creature. He is the master of trade and border crossings and is a messenger of  Hades.",
+	    "battle_conversation": "Hermes: You defeated my son, impressive!#Percy: It was a cakewalk for me. #Hermes: You have come a long way. It would be a pity to see you go back to square one.#Percy: I have not come here to go back, Hermes. I have come here to defeat the evil.#Hermes: Woah! cOmE hErE tO DeFeaT tHe EviL! Are you a Tolkien Fan or what?#Percy: I don’t know whether you are good at this but you are definitely not good at comebacks. Now let’s battle or do you wanna settle this with trash talk?",
 	    "before_battle_init": "0",
-	    "after_battle": "ABC: Psst, you wanna know a secret? You are not a great fighter either.#Hermes: You shouldn’t be too proud of yourself lad. You still have a long way to go.#ABC: Please keep talking, I only yawn when I am super fascinated.#Hermes: Well, you can’t defeat Plutus by talking.",
+	    "after_battle": "Percy: Psst, you wanna know a secret? You are not a great fighter either.#Hermes: You shouldn’t be too proud of yourself lad. You still have a long way to go.#Percy: Please keep talking, I only yawn when I am super fascinated.#Hermes: Well, you can’t defeat Plutus by talking.",
 	    "after_battle_init": "1"
 	},
 	"6":{
-		"title": "Accountant",
+		"title": "Plutus the Accountant",
 	    "story": "Plutus, the one who handles all the gold and wealth.He is a hedonist, a pleasure-seeker and  he uses his highly advance cards to augment his abilities and perform feats that might be normally beyond him.",
-	    "battle_conversation": "Plutus: Here’s what I wanna know, who are you?#ABC: I am ABC-I have come here to fight you.#Plutus: Huh?..Oh good.. What happened to my manners?I haven't properly introduced myself. Come on. Follow me. My name is Plutus.#ABC: I am not your friend and I don’t care who are you. I have come here to fight you.#Plutus: Well, what are we waiting for?",
+	    "battle_conversation": "Plutus: Here’s what I wanna know, who are you?#Percy: I am Percy-I have come here to fight you.#Plutus: Huh?..Oh good.. What happened to my manners?I haven't properly introduced myself. Come on. Follow me. My name is Plutus.#Percy: I am not your friend and I don’t care who are you. I have come here to fight you.#Plutus: Well, what are we waiting for?",
 	    "before_battle_init": "0",
-	    "after_battle": "After Battle Conversation for Accountant",
+	    "after_battle": "Percy: So, did you see how good I was?#Plutus: You think by defeating me you have moved closer to your goal, NO! You still have HADES to fight. #Percy: And I will defeat him too and get everything back to way it was.",
 	    "after_battle_init": "1"
 	},
 	"7":{
-		"title": "Dionysus",
-	    "story": "Plutus, the one who handles all the gold and wealth.He is a hedonist, a pleasure-seeker and  he uses his highly advance cards to augment his abilities and perform feats that might be normally beyond him.",
-	    "battle_conversation": "Plutus: Here’s what I wanna know, who are you?#ABC: I am ABC-I have come here to fight you.#Plutus: Huh?..Oh good.. What happened to my manners?I haven't properly introduced myself. Come on. Follow me. My name is Plutus.#ABC: I am not your friend and I don’t care who are you. I have come here to fight you.#Plutus: Well, what are we waiting for?",
+		"title": "Hades",
+	    "story": "Hades is the ultimate challenge for you. Defeating him will result in defeating the evil. But be careful, Hades is stern and pitiless, unmoved by prayer or sacrifice. Since to many, simply to say the word 'Hades' was frightening.",
+	    "battle_conversation": "Hades: Oh, I see, you have been successful in reaching here so far. But now is the time to lose.#Percy: Hades, I have come here to defeat you and stop you from using the magical cards for your own use.#Hades: Oh, what do you know, what all these cards can do! You don’t have any idea about the cards true power.#Percy: There is still time, you still can give up all this and follow the righteous path.#Hades: This is the righteous path, and you soon will understand this.#Percy: Not going to give up now Hades.",
 	    "before_battle_init": "0",
-	    "after_battle": "After Battle Conversation for Accountant",
+	    "after_battle": "Hades: You really thought this is the end and it's that easy?#Percy: I think losing has affected your brain. #Hermes: Haha, kid! It's not over yet. #Percy:What do you mean?",
 	    "after_battle_init": "1"
+	},
+	"8":{
+		"title": "Final chapter",
+		"story": "After defeating Hades, you thought that everything would go back to normal now. But that does not happen, one more creature comes out. Nobody knew about him. His name is Kronos, he is my father. He is the most powerful of them all, known for his skills, mind and power. Hades was his son and they both got greedy and started following the devious path.You killed his son and he is going to take his revenge. He won’t let you go easily.  Are you ready? And guess what? Zeus is the brother of Poseidon.",
+		"battle_conversation": "Kronos: You have defeated all my best fighters, some of them were undefeated.#Percy: Well, you should have recruited someone better.#Kronos: Hahaha! You never give up, do you?#Percy: Still going strong.#Kronos: This fight is not going to be a cakewalk for you kid.#Percy: I don’t expect it to be. ",
+		"before_battle_init": "0",
+		"after_battle":"yet to be finalised.",
+		"after_battle_init":"1"
+	},
+	"end":{
+		"title": "And then there were none.",
+		"story": "After defeating all the fighters and their leader Kronos, Percy restores the balance on the island. All the magical cards which were going to be distributed in the outside world were recollected and were safely stored deep inside in a cave which was closed with a magical spell, which can not be seen through a naked eye."
+
 	}
 }

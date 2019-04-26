@@ -1,11 +1,11 @@
 package map;
 
+import org.apache.struts2.ServletActionContext;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -55,7 +55,7 @@ public class ShowStory {
 	
 	public void populateStory() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject storiesJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/story.json"));
+		JSONObject storiesJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/story.json"));
 		
 		JSONObject storyJSON = (JSONObject) storiesJSON.get(level);
 		
@@ -69,7 +69,7 @@ public class ShowStory {
 		JSONObject obj1 = null;
 		
 		try {
-			obj1 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/map.json"));
+			obj1 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
 		
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,13 +90,34 @@ public class ShowStory {
 		
 		String newMapJSONData = gson.toJson(obj1);
 		
-		FileWriter file = new FileWriter(Constants.projectRootPath + "/WebContent/assets/data/1/map.json");
+		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+        file.write(newMapJSONData);
+        file.flush();
+        file.close();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void updateNpcBattling() throws FileNotFoundException, IOException, ParseException {
+		JSONParser jsonParser = new JSONParser();
+		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+		JSONObject data = (JSONObject)obj;
+		
+		
+		data.put("npc_battling", "-1");
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+		String newMapJSONData = gson.toJson(data);
+
+		
+		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
         file.write(newMapJSONData);
         file.flush();
         file.close();
 	}
 	
 	public String execute() throws Exception {
+		updateNpcBattling();
 		populate();
 		return "success";
 	}

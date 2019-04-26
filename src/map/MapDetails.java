@@ -10,6 +10,7 @@ import org.json.simple.parser.ParseException;
 
 import proceduralGenerator.Constants;
 
+import org.apache.struts2.ServletActionContext;
 public class MapDetails {
 	public JSONObject mapData;
 
@@ -25,7 +26,7 @@ public class MapDetails {
 		JSONParser jsonParser = new JSONParser();
 		Object obj = null;
 		try {
-			obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/map.json"));
+			obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

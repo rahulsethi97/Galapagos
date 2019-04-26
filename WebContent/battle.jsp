@@ -10,11 +10,20 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/battle_card.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/story.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/conversation.css">
-    <title>Phaser Template</title>
+    <title>Galapagos</title>
 
     <style>
+		body {
+			margin: 0px;
+			background-color: black;
+			padding: 0px;
+			width: 100%;
+			height: 100%;
+			min-width: 1000px;
+			min-height: 1000px;
+		}
+    
       html,
-      body,
       .grid-container {
         display: grid;
         grid-gap: 10px;
@@ -77,15 +86,22 @@
         margin-bottom: -15px;
       }
     </style>
+     <script>
+		var allowed = "<%=session.getAttribute("GameStarted")%>";
+		console.log(allowed);
+		if(allowed == "null"){
+			window.location.href = "/";
+		}
+    </script>
   </head>
 
   <body>
     <div class="grid-container">
       <div class="grid-item item1"></div>
       <div class="grid-item item2">
-        <div id='myleft'>Player Name</div> 
+        <div id='myleft'>Percy</div> 
         <div id='myright'></div> 
-        <div id='mycenter'><a style = "text-decoration: none;color: white" href = "/Galapagos/map.jsp" >Home</a>  |  <a href = "/Galapagos/inventory.jsp" style = "text-decoration: none;color: white"  >Inventory</a></div> 
+        <div id='mycenter'><a style = "text-decoration: none;color: white" href = "/map.jsp" >Home</a>  |  <a href = "/inventory.jsp" style = "text-decoration: none;color: white"  >Inventory</a>  |  <a id="restartLink" style = "text-decoration: none;color: white" href = "#" >Restart</a>  |  <a style = "text-decoration: none;color: white" href = "https://docs.google.com/document/d/194G9XQ2vSwX_e_tNTHg4lixRBCHboBIO4zD8uawKqCg/edit" >Card Instruction Manual</a></div> 
       </div>
       <div class="grid-item item3">
         <div class ="wrapper">
@@ -98,10 +114,11 @@
           
           <div id = "playercard" style = "display:none">
 			<div class="player_card">
+				<div>
+	            	<div id ="pLeftImg" class = "img"></div>
+	            	<div id = "pRightImg" class = "img2"></div>
+				</div>
 				<div class="health" id = "player_name"></div>
-				<br>
-				<!-- <img src="http://x.annihil.us/u/prod/marvel/i/mg/e/e0/537bafa34baa9.jpg" class="hero"> -->
-				<br><br>
 				<label>Race</label><b id = "player_race"></b>
 				<label>Type</label><b id = "player_type"></b><br><br>
 				<label>HP</label><b id = "player_hp"></b>
@@ -113,10 +130,11 @@
           
           <div id = "opponentcard" style = "display:none">
 			<div class="oppenent_card">
+				<div>
+	            	<div id ="oLeftImg" class = "img"></div>
+	            	<div id = "oRightImg" class = "img2"></div>
+				</div>
 				  <div class="health" id = "opponent_name"></div>
-				<br>
-				<!-- <img src="http://x.annihil.us/u/prod/marvel/i/mg/e/e0/537bafa34baa9.jpg" class="hero"> -->
-				<br><br>
 				<label>Race</label><b id = "opponent_race"></b>
 				<label>Type</label><b id = "opponent_type"></b><br><br>
 				<label>HP</label><b id = "opponent_hp"></b>
@@ -126,8 +144,8 @@
 			</div>
           </div>
           <div id = "battleOptions" style = "display:none;color:white">
-          	<div onclick = "chooseCard();"><button class = "battleOptionsButton">Change Card</button></div>
-		  	<div onclick = "startBattle();"><button class = "battleOptionsButton">Begin</button></div>
+          	<div><button onclick = "chooseCard();" class = "battleOptionsButton">Change Card</button></div>
+		  	<div><button onclick = "startBattle();" class = "battleOptionsButton">Begin</button></div>
           </div>
         </div>
       </div>
@@ -145,12 +163,52 @@
 
   <script type="text/javascript">
     
+	function restart(){
+		console.log("Here");
+		$('<div></div>').appendTo('body')
+	      .html('<div><h6>Do you want to restart the Game?</h6></div>')
+	      .dialog({
+	        modal: true, title: 'Confirmation', zIndex: 10000, autoOpen: true,
+	        width: 'auto', resizable: false,
+	        buttons: {
+	            Yes: function () {
+	          	  jQuery.ajax({
+	          			type : "GET",
+	          			url : "restart",
+	          			data: {},
+	          			success : function(data) {
+	          	              window.location.href = "/"
+	          			},
+	          			error : function(data) {
+	          				alert("Some error occured.");
+	          			}
+	          		});
+	                $(this).dialog("close");
+	            },
+	            No: function () {     
+	                $(this).dialog("close");
+	                console.log("sads");
+	            }
+	        },
+	        close: function (event, ui) {
+	            $(this).remove();
+	        }
+	    });
+	}
+  
+	var a = document.getElementById("restartLink");
+	
+	a.onclick = function() {
+		restart();
+	}
+  
   	var npcCardId;
   	var playerChosenCardId;
   	var level = "";
   	var inventoryData;
 	var cardDetails;
 	var battleStory;
+	var npcBattling;
 	
 	jQuery.ajax({
 		type : "GET",
@@ -163,11 +221,16 @@
 			cardDetails = data.cardDetails;
 			npcCardId = data.opponentCard;
 			level = data.level;
+			npcBattling = data.npcBattling;
 		},
 		error : function(data) {
 			alert("Some error occured.");
 		}
 	});
+	
+	if(npcBattling == "-1"){
+		window.location.href = "/map.jsp?noNpcBattle=1";
+	}
 	
 	document.getElementById("myright").innerHTML = "Level: " + level;
 	
@@ -177,6 +240,7 @@
 		console.log(npcCardId + " - " + playerChosenCardId);
 		var result;
 		var message;
+		var lesson;
 		jQuery.ajax({
 			type : "GET",
 			url : "startBattle",
@@ -186,6 +250,7 @@
 				console.log(data);
 				result = data.result;
 				lostConversation = data.lostConversation;
+				lesson = data.lesson;
 			},
 			error : function(data) {
 				alert("Some error occured.");
@@ -197,8 +262,8 @@
 				    		'<div class="chatboxin">';
 		var afterBattle;
 		if(result == "Card2"){
-			document.getElementById("dialogueBox").innerHTML = "Alastor: You did a good job reaching till here. Maybe I have to wait for someone else to stop this organization";
-			document.getElementById("mycenter").innerHTML = '<a style = "text-decoration: none;color: white" href = "/Galapagos" >Restart</a>'
+			document.getElementById("dialogueBox").innerHTML = 'Posiedon: ' + lesson + "You did a good job reaching till here. Maybe I have to wait for someone else to stop this organization";
+			document.getElementById("mycenter").innerHTML = '';
 			message = "You Lost";
 			afterBattle = lostConversation;
 			document.getElementById("pageTitle").innerHTML = message;
@@ -226,7 +291,7 @@
 			htmlCode += '</div></div></div>';
 			htmlCode += '<div class = "battleButton" id="BattleButton" style="visibility:hidden"><button onclick="restart();">Restart</button></div>';
 		}else{
-			document.getElementById("dialogueBox").innerHTML = "Alastor: Attaboy..!! We are one step closer to finish this mission.";
+			document.getElementById("dialogueBox").innerHTML = 'Posiedon: ' + lesson + " Attaboy..!! We are one step closer to finish this mission.";
 			message = "You Won";
 			afterBattle = battleStory.after_battle.split("#");
 			var after_battle_init = battleStory.after_battle_init;
@@ -274,7 +339,11 @@
 			}
 
 			htmlCode += '</div></div></div>'
-			htmlCode += '<div class = "battleButton" id="BattleButton" style="visibility:hidden"><button onclick="goToMap();">Continue</button></div>';
+			if(level == "8"){
+				htmlCode += '<div class = "battleButton" id="BattleButton" style="visibility:hidden"><button onclick="end();">Continue</button></div>';
+			}else{
+				htmlCode += '<div class = "battleButton" id="BattleButton" style="visibility:hidden"><button onclick="goToMap();">Continue</button></div>';	
+			}
 		}
 		
 	      
@@ -287,18 +356,19 @@
 	    console.log(afterBattle);
 	    
 	    for (var i = 0; i < afterBattle.length; i++) {
-	  	  showText("" + 2*i,i+1);
+	  	  showText("" + 2*i,(i*2));
 	    }
-	    showText('BattleButton',afterBattle.length + 1);
+	    showText('BattleButton',(afterBattle.length*2));
 	}
 	
 	function goToMap(){
-		window.location.href = "/Galapagos/map.jsp";
+		window.location.href = "/map.jsp";
 	}
 	
-	function restart(){
-		window.location.href = "/Galapagos";
+	function end(){
+		window.location.href = "/end.jsp";
 	}
+	
 	
     function showText(id,delay)
     {
@@ -382,10 +452,10 @@
 	      console.log(beforeBattleConversation);
 	      
 	      for (var i = 0; i < beforeBattleConversation.length; i++) {
-	    	  showText("" + i,i+1);
+	    	  showText("" + i,(i*2));
 	      }
 	      
-	      showText('BattleButton',beforeBattleConversation.length + 1);
+	      showText('BattleButton',(beforeBattleConversation.length*2));
     }
 
     function battle(cardId){
@@ -398,7 +468,10 @@
       document.getElementById("player_offense").innerHTML = inventoryData[cardId].Offense;
       document.getElementById("player_defense").innerHTML = inventoryData[cardId].Defense;
       document.getElementById("player_name").innerHTML = inventoryData[cardId].Name;
-      
+
+	  document.getElementById("pLeftImg").style.backgroundImage = 'url(./assets/images/'+ inventoryData[cardId].Race + '.png)';
+	  document.getElementById("pRightImg").style.backgroundImage = 'url(./assets/images/'+ inventoryData[cardId].Type + '.png)';
+	  
       document.getElementById("playercard").style.display = 'block';
       document.getElementById("battleOptions").style.display = 'block';
       
@@ -421,7 +494,7 @@
 				alert("Some error occured.");
 			}
 		});
- 	  document.getElementById("dialogueBox").innerHTML = "Alastor: " + guideMessage;
+ 	  document.getElementById("dialogueBox").innerHTML = "Posiedon: " + guideMessage + ' Remember to retain the better card for future.';
       document.getElementById("battleOptions").style.display = 'none';
       document.getElementById("playercard").style.display = 'none';
       document.getElementById("ground").style.display = 'block';
@@ -451,7 +524,10 @@
       document.getElementById("opponent_offense").innerHTML = cardDetails[npcCardId].Offense;
       document.getElementById("opponent_defense").innerHTML = cardDetails[npcCardId].Defense;
       document.getElementById("opponent_name").innerHTML = cardDetails[npcCardId].Name;
-      
+      console.log(document.getElementById("oLeftImg").style.backgroundImage);
+	  document.getElementById("oLeftImg").style.backgroundImage = 'url(./assets/images/'+ cardDetails[npcCardId].Race + '.png)';
+	  document.getElementById("oRightImg").style.backgroundImage = 'url(./assets/images/'+ cardDetails[npcCardId].Type + '.png)';
+      console.log(document.getElementById("oLeftImg").style.backgroundImage);
       document.getElementById("opponentcard").style.display = 'block';
     }
 

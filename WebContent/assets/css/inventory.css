@@ -22,5 +22,22 @@ h1{
 	font-family: sans-serif;
 }
 
-
-
+.card .img{
+ 	background-image: url("../images/Merchant.png");
+ 	width: 100px;
+ 	height: 150px;
+ 	background-size: 100%;
+ 	object-fit: scale-down;
+ 	background-repeat: no-repeat;
+ 	float: left;
+ }
+ 
+ .card .img2{
+ 	background-image: url("../images/Water.png");
+ 	width: 100px;
+ 	height: 150px;
+ 	background-size: 100%;
+ 	object-fit: scale-down;
+ 	background-repeat: no-repeat;
+ 	float: right;
+ }

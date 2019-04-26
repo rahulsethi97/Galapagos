@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="map.StartGame" project="Galapagos" file="/Galapagos/src/map/StartGame.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="97" width="102" x="412" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="map.PopulateBattle" project="Galapagos" 
+    file="/Galapagos/src/map/PopulateBattle.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="277" width="131" x="554" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="map.ShowStory" project="Galapagos" file="/Galapagos/src/map/ShowStory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="349" width="154" x="725" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="map.MapDetails" project="Galapagos" file="/Galapagos/src/map/MapDetails.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="169" width="172" x="919" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="map.PopulateInventory" project="Galapagos" 
+    file="/Galapagos/src/map/PopulateInventory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="331" width="195" x="1131" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="map.CollectCard" project="Galapagos" file="/Galapagos/src/map/CollectCard.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="295" width="184" x="1366" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="map.GetBattleGuidance" project="Galapagos" 
+    file="/Galapagos/src/map/GetBattleGuidance.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="223" width="169" x="1590" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="map.StoreLocation" project="Galapagos" 
+    file="/Galapagos/src/map/StoreLocation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="205" width="104" x="1799" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="map.StartBattle" project="Galapagos" file="/Galapagos/src/map/StartBattle.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="421" width="187" x="1943" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="map.GetStory" project="Galapagos" file="/Galapagos/src/map/GetStory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="493" width="191" x="2170" y="129"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

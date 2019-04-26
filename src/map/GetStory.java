@@ -64,10 +64,9 @@ public class GetStory {
 		this.after_battle_init = after_battle_init;
 	}
 	
-	@SuppressWarnings("unchecked")
 	void populateStory() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject storiesJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/story.json"));
+		JSONObject storiesJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/story.json"));
 		
 		JSONObject storyJSON = (JSONObject) storiesJSON.get(level);
 		

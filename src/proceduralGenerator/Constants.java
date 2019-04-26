@@ -13,7 +13,8 @@ public class Constants {
 	
 	public static final String[] cardRaces = {"Warrior", "Royalty", "Scholar", "Merchant"};
 	
-	public static final String projectRootPath = "/home/rsethi3/eclipse-workspace/Galapagos";
+	public static String projectRootPath = "/home/rsethi3/eclipse-workspace/Galapagos";
+	public static String sessionId = "";
 	
 	public static final String[] guideCardMessages = {	
 														"Nice.!! That's a really nice card you got.", 

@@ -1,5 +1,7 @@
 package proceduralGenerator;
 
+
+import org.apache.struts2.ServletActionContext;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,8 +14,6 @@ import org.json.simple.parser.ParseException;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import javafx.util.Pair;
 
 public class PopulateMap {
 	JSONObject data;
@@ -77,19 +77,19 @@ public class PopulateMap {
 	void populateData() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
 		if(level == 1) {
-			JSONObject mapFrame = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/mapFrame.json"));
+			JSONObject mapFrame = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/mapFrame.json"));
 			
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			
 			String mapData = gson.toJson(mapFrame);
 //			System.out.println(mapData);
 			
-			FileWriter file = new FileWriter(Constants.projectRootPath + "/WebContent/assets/data/1/map.json");
+			FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
 	        file.write(mapData);
 	        file.flush();
 	        file.close();
 		}
-		this.data = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/map.json"));
+		this.data = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -142,7 +142,7 @@ public class PopulateMap {
 		String mapData = gson.toJson(this.data);
 //		System.out.println(mapData);
 		
-		FileWriter file = new FileWriter(Constants.projectRootPath + "/WebContent/assets/data/1/map.json");
+		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
         file.write(mapData);
         file.flush();
         file.close();

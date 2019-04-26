@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/inventory.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/card.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/story.css">
-    <title>Phaser Template</title>
+    <title>Galapagos</title>
 
     <style>
       html,
@@ -78,15 +78,22 @@
         margin-bottom: -15px;
       }
     </style>
+     <script>
+		var allowed = "<%=session.getAttribute("GameStarted")%>";
+		console.log(allowed);
+		if(allowed == "null"){
+			window.location.href = "/";
+		}
+    </script>
   </head>
 
   <body>
     <div class="grid-container">
 		<div class="grid-item item1"></div>
 		<div class="grid-item item2">
-		  <div id='myleft'>Player Name</div> 
+		  <div id='myleft'>Percy</div> 
 		  <div id='myright'></div> 
-		  <div id='mycenter'><a style = "text-decoration: none;color: white" href = "/Galapagos/map.jsp" >Home</a>  |  <a href = "/Galapagos/inventory.jsp" style = "text-decoration: none;color: white"  >Inventory</a></div> 
+		  <div id='mycenter'><a style = "text-decoration: none;color: white" href = "/map.jsp" >Home</a>  |  <a href = "/inventory.jsp" style = "text-decoration: none;color: white"  >Inventory</a>  |  <a id="restartLink" style = "text-decoration: none;color: white" href = "#" >Restart</a></div> 
 		</div>
 		<div class="grid-item item3">
 		  <div class ="wrapper">
@@ -95,11 +102,12 @@
 		
 		      </div>
 		      <!-- <div id = "cardDetails" style = "display:none"><img src = "./assets/images/battlecard.jpg" width="23%" height="23%"></div> -->
-		      <div class="card" id = "cardDetails" style = "display:none"	>
-		 	<div class="health" id = "name"></div>
-				<br>
-				<!-- <img src="http://x.annihil.us/u/prod/marvel/i/mg/e/e0/537bafa34baa9.jpg" class="hero"> -->
-				<br><br>
+		      <div class="card" id = "cardDetails" style = "display:none">
+		      	<div>
+	            	<div id = "leftimg" class = "img"></div>
+	            	<div id = "rightimg" class = "img2"></div>
+				</div>
+		 		<div class="health" id = "name"></div>
 				<label>Race</label><b id = "race"></b>
 				<label>Type</label><b id = "type"></b><br><br>
 				<label>HP</label><b id = "hp"></b>
@@ -110,7 +118,7 @@
 	       </div>
 	    </div>
 		<div class="grid-item item4">
-      		Alastor: Welcome to the inventory. You can click on the cards to see its details...!!
+      		Posiedon: Welcome to the inventory. You can click on the cards to see its details...!!
     	</div>
      </div>
     
@@ -122,6 +130,42 @@
 
   <script type="text/javascript">
 	
+  var a = document.getElementById("restartLink");
+
+  //Set code to run when the link is clicked
+  // by assigning a function to "onclick"
+  a.onclick = function() {
+  	$('<div></div>').appendTo('body')
+      .html('<div><h6>Do you want to restart the Game?</h6></div>')
+      .dialog({
+        modal: true, title: 'Confirmation', zIndex: 10000, autoOpen: true,
+        width: 'auto', resizable: false,
+        buttons: {
+            Yes: function () {
+          	  jQuery.ajax({
+          			type : "GET",
+          			url : "restart",
+          			data: {},
+          			success : function(data) {
+          	              window.location.href = "/"
+          			},
+          			error : function(data) {
+          				alert("Some error occured.");
+          			}
+          		});
+                $(this).dialog("close");
+            },
+            No: function () {     
+                $(this).dialog("close");
+                console.log("sads");
+            }
+        },
+        close: function (event, ui) {
+            $(this).remove();
+        }
+    });
+  }
+  
   	var inventoryData;
   	var level;
   	jQuery.ajax({
@@ -157,7 +201,8 @@
 	  document.getElementById("offense").innerHTML = inventoryData[key].Offense;
 	  document.getElementById("defense").innerHTML = inventoryData[key].Defense;
 	  document.getElementById("name").innerHTML = inventoryData[key].Name;
-
+	  document.getElementById("leftimg").style.backgroundImage = 'url(./assets/images/'+ inventoryData[key].Race + '.png)';
+	  document.getElementById("rightimg").style.backgroundImage = 'url(./assets/images/'+ inventoryData[key].Type + '.png)';
       document.getElementById("cardDetails").style.display = 'block';
     }
   </script>

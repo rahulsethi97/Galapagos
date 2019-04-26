@@ -1,13 +1,11 @@
 package map;
 
+import org.apache.struts2.ServletActionContext;
 import java.io.FileReader;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import proceduralGenerator.Constants;
 
@@ -16,6 +14,15 @@ public class PopulateInventory {
 	public JSONObject cardDetails;
 	public String opponentCard;
 	public String level;
+	public String npcBattling;
+
+	public String getNpcBattling() {
+		return npcBattling;
+	}
+
+	public void setNpcBattling(String npcBattling) {
+		this.npcBattling = npcBattling;
+	}
 
 	public String getLevel() {
 		return level;
@@ -56,15 +63,15 @@ public class PopulateInventory {
 		JSONObject obj2 = null;
 		JSONObject obj3 = null;
 		try {
-			obj1 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/map.json"));
-			obj2 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/cards.json"));
-			obj3 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/npcs.json"));
+			obj1 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+			obj2 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json"));
+			obj3 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/npcs.json"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		this.level = (String) obj1.get("level");
-		
+		this.npcBattling = (String) obj1.get("npc_battling");
 		JSONArray inventory = (JSONArray) obj1.get("inventory");
 		inventoryData = new JSONObject();
 		for (int i = 0; i < inventory.size(); i++) {

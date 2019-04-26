@@ -1,5 +1,7 @@
 package proceduralGenerator;
 
+
+import org.apache.struts2.ServletActionContext;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -16,7 +18,7 @@ public class GenerateNPCs {
 	@SuppressWarnings("unchecked")
 	void populateNPCs() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject npcJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/npcs.json"));
+		JSONObject npcJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/npcs.json"));
 		
 		int cardId = 4;
 		
@@ -30,7 +32,7 @@ public class GenerateNPCs {
 		String newNPCJSONData = gson.toJson(npcJSON);
 //		System.out.println(newNPCJSONData);
 		
-		FileWriter file = new FileWriter(Constants.projectRootPath + "/WebContent/assets/data/1/npcs.json");
+		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/npcs.json");
         file.write(newNPCJSONData);
         file.flush();
         file.close();

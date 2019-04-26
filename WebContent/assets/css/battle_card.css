@@ -48,3 +48,46 @@ label {
 }
 b { float: left; width: 65%; padding-bottom: 2%;}
 .clear { clear: both; }
+
+
+.player_card .img{
+ 	background-image: url("../images/merchant.png");
+ 	width: 100px;
+ 	height: 150px;
+ 	background-size: 100%;
+ 	object-fit: scale-down;
+ 	background-repeat: no-repeat;
+ 	float: left;
+ }
+
+
+.player_card .img2{
+ 	background-image: url("../images/waters.png");
+ 	width: 100px;
+ 	height: 150px;
+ 	background-size: 100%;
+ 	object-fit: scale-down;
+ 	background-repeat: no-repeat;
+ 	float: right;
+ }
+ 
+ 
+.oppenent_card .img{
+ 	background-image: url("../images/merchant.png");
+ 	width: 100px;
+ 	height: 150px;
+ 	background-size: 100%;
+ 	object-fit: scale-down;
+ 	background-repeat: no-repeat;
+ 	float: left;
+ }
+ 
+.oppenent_card .img2{
+ 	background-image: url("../images/waters.png");
+ 	width: 100px;
+ 	height: 150px;
+ 	background-size: 100%;
+ 	object-fit: scale-down;
+ 	background-repeat: no-repeat;
+ 	float: right;
+ }

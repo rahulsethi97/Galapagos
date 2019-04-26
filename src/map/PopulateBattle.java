@@ -14,6 +14,7 @@ import com.google.gson.GsonBuilder;
 
 import proceduralGenerator.Constants;
 
+import org.apache.struts2.ServletActionContext;
 public class PopulateBattle {
 	public String npc_id;
 	public String new_x;
@@ -48,7 +49,7 @@ public class PopulateBattle {
 	@SuppressWarnings("unchecked")
 	public void populateBattle() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/1/map.json"));
+		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
 		JSONObject data = (JSONObject)obj;
 		
 		JSONObject map = (JSONObject) data.get("map");
@@ -76,7 +77,7 @@ public class PopulateBattle {
 		String newMapJSONData = gson.toJson(data);
 //		System.out.println(newMapJSONData);
 		
-		FileWriter file = new FileWriter(Constants.projectRootPath + "/WebContent/assets/data/1/map.json");
+		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
         file.write(newMapJSONData);
         file.flush();
         file.close();

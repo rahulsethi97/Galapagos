@@ -1,6 +1,5 @@
 package proceduralGenerator;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,7 +22,7 @@ public class StartProceduralGenerator {
 		
 //		System.out.println(System.getProperty("user.dir"));
 		
-		JSONObject coordinate = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/WebContent/assets/data/coordinates.json"));
+		JSONObject coordinate = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/coordinates.json"));
 		
 		coordinate.keySet().forEach(keyStr ->
 	    {

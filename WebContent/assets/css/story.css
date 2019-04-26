@@ -21,30 +21,31 @@
 }
 
 body {
-  margin: 0;
-  background-color: black;
+	margin: 0px;
+	background-color: black;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	min-width: 1000px;
+	min-height: 1000px;
 }
 
 p {
   color: #FFFF82;
 }
 
-body {
-  margin: 0px;
-  padding: 0px;
-}
 
 #popdiv {
   height: 700px;
   width: 1230px;
-  background-color: #fbf9eeb0;
+  background-color: #fbf9eedb;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   color: black;
-  margin-top: -54px;
-  font-size: 50px;
+  margin-top: -22px;
+  font-size: 45px;
   line-height: 1.5em;
 }
 

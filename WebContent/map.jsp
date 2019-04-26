@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="./assets/css/story.css">
     
-    <title>Phaser Template</title>
+    <title>Galapagos</title>
 
     <style>
       html,
@@ -87,15 +87,22 @@
 		}
       
     </style>
+    <script>
+		var allowed = "<%=session.getAttribute("GameStarted")%>";
+		console.log(allowed);
+		if(allowed == "null"){
+			window.location.href = "/";
+		}
+    </script>
   </head>
 
   <body>
     <div class="grid-container">
       <div class="grid-item item1"></div>
       <div class="grid-item item2">
-        <div id='myleft'>Player Name</div> 
+        <div id='myleft'>Percy</div> 
         <div id='myright'></div> 
-        <div id='mycenter'><a style = "text-decoration: none;color: white" href = "/Galapagos/map.jsp" >Home</a>  |  <a href = "/Galapagos/inventory.jsp" style = "text-decoration: none;color: white"  >Inventory</a></div> 
+        <div id='mycenter'><a style = "text-decoration: none;color: white" href = "/map.jsp" >Home</a>  |  <a href = "/inventory.jsp" style = "text-decoration: none;color: white"  >Inventory</a>  |  <a id="restartLink" style = "text-decoration: none;color: white" href = "#" >Restart</a></div> 
       </div>
       <div class="grid-item item3">
         <div id="game-container"></div>

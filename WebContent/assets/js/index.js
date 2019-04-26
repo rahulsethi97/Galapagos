@@ -4,11 +4,12 @@
  *  - Tuxemon, https://github.com/Tuxemon/Tuxemon
  */
 
+
 const config = {
   type: Phaser.AUTO,
   width: 1250,
   height: 700,
-  // height: 12090,
+//   height: 12090,
   parent: "game-container",
   pixelArt: true,
   physics: {
@@ -271,39 +272,44 @@ function collectCard (player, a){
 		}
   });
   
-  alert("Card " + id + " Collected");
+  alert("Card '" + cardDetails.Name + "' Collected");
   a.disableBody(true, true);
   
-  document.getElementById("dialogueBox").innerHTML = guideMessage; 
+  document.getElementById("dialogueBox").innerHTML = 'Posiedon: ' + guideMessage; 
   
 }
 
 
 function battlenpc(player , npc){
 	this.input.disabled = true;
+	var isInventoryEmpty;
 	jQuery.ajax({
 		type : "GET",
-		url : "populateBattle",
+		url : "moveAway",
+		async: false,
 		data: {npc_id : npc.name},
 		success : function(data) {
 			console.log(data);
 			player.x = parseInt(data.new_x);
 			player.y = parseInt(data.new_y);
+			isInventoryEmpty = data.isInventoryEmpty;
 			storeCurrentLocation();
 		},
 		error : function(data) {
 			alert("Some error occured.");
 		}
 	});
-	
-  if(overlapTriggered == true)
-	  return;
- 
-  
-  overlapTriggered = true;
-  var npc_name = "" + npc.name;
-  ConfirmDialog("Do you want to battle?" , npc, player);
-  
+	if(isInventoryEmpty == "1"){
+		document.getElementById("dialogueBox").innerHTML = 'Posiedon: ' + "You must have atleast one card in your inventory to battle the NPC."; 
+	}else{
+		if(overlapTriggered == true)
+			  return;
+		 
+		  
+		overlapTriggered = true;
+		var npc_name = "" + npc.name;
+		ConfirmDialog("Do you want to battle?" , npc, player);
+	}
 }
 
 
@@ -318,8 +324,21 @@ function ConfirmDialog(message , npc, player){
           Yes: function () {
               console.log('Yes');
               overlapTriggered = false;
-              
-              window.location.href = "/Galapagos/battle.jsp"
+              jQuery.ajax({
+          		type : "GET",
+          		url : "populateBattle",
+          		data: {npc_id : npc.name},
+          		success : function(data) {
+          			console.log(data);
+          			player.x = parseInt(data.new_x);
+          			player.y = parseInt(data.new_y);
+          			storeCurrentLocation();
+          		},
+          		error : function(data) {
+          			alert("Some error occured.");
+          		}
+          	});
+              window.location.href = "/battle.jsp"
               
               $(this).dialog("close");
           },
@@ -352,6 +371,29 @@ function storeCurrentLocation(){
 }
 
 jQuery(window).load(function() {
+	
+	function isEmpty(obj) {
+	    for(var key in obj) {
+	        if(obj.hasOwnProperty(key))
+	            return false;
+	    }
+	    return true;
+	}
+	
+	var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    
+    if(!isEmpty(vars)){
+    	if(vars.noNpcBattle != null){
+    		console.log(vars.noNpcBattle);
+    		if(vars.noNpcBattle == 1){
+    			document.getElementById("dialogueBox").innerHTML = 'Posiedon: ' + "You must go to the NPC to battle."; 
+    		}
+    	}
+    }
+    
 	var storyData;
 	var flag = "0";
 	jQuery.ajax({
@@ -377,6 +419,42 @@ jQuery(window).load(function() {
 		document.getElementById("storyTitle").innerHTML = "<strong>Chapter: " + storyData.title + "</strong>";
 		document.getElementById("storyContent").innerHTML = storyData.story;
 	}
+	
+	var a = document.getElementById("restartLink");
+
+    //Set code to run when the link is clicked
+    // by assigning a function to "onclick"
+    a.onclick = function() {
+    	$('<div></div>').appendTo('body')
+        .html('<div><h6>Do you want to restart the Game?</h6></div>')
+        .dialog({
+          modal: true, title: 'Confirmation', zIndex: 10000, autoOpen: true,
+          width: 'auto', resizable: false,
+          buttons: {
+              Yes: function () {
+            	  jQuery.ajax({
+            			type : "GET",
+            			url : "restart",
+            			data: {},
+            			success : function(data) {
+            	              window.location.href = "/"
+            			},
+            			error : function(data) {
+            				alert("Some error occured.");
+            			}
+            		});
+                  $(this).dialog("close");
+              },
+              No: function () {     
+                  $(this).dialog("close");
+                  console.log("sads");
+              }
+          },
+          close: function (event, ui) {
+              $(this).remove();
+          }
+      });
+    }
 });
 
 
