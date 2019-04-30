@@ -34,13 +34,17 @@ public class GetBattleGuidance {
 	
 	public void populateGuideMessage() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject cards = (JSONObject) jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json"));
+		
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json");
+		JSONObject cards = (JSONObject) jsonParser.parse(f);
+		f.close();
+		
 		JSONObject npcCardDetails = (JSONObject) cards.get(this.npcCardId);
 		
 		String npcRace = (String) npcCardDetails.get("Race");
 		String npcType = (String) npcCardDetails.get("Type");
 		int randNum = ThreadLocalRandom.current().nextInt(1, 3);
-//		System.out.println(randNum);
+
 		if(randNum == 1) {
 			if(npcRace.equals("Warrior")) {
 				this.guideMessage = "Remember!! Cards with Race 'Warrior' increases its HP";
@@ -65,7 +69,6 @@ public class GetBattleGuidance {
 	}
 	
 	public String execute() throws Exception {
-//		System.out.println(this.npcCardId);
 		try {
 			populateGuideMessage();
 		}catch(Exception e) {

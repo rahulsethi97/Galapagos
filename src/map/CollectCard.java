@@ -48,11 +48,16 @@ public class CollectCard {
 	
 	@SuppressWarnings("unchecked")
 	public void addToInventory() throws FileNotFoundException, IOException, ParseException {
-//		System.out.println("In func");
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
-		JSONObject cardObj = (JSONObject) jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json"));
+		
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+		Object obj = jsonParser.parse(f);
 		JSONObject data = (JSONObject)obj;
+		
+		f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json");
+		JSONObject cardObj = (JSONObject) jsonParser.parse(f);
+		
+		f.close();
 		
 		JSONArray inventory = (JSONArray) data.get("inventory");
 		JSONObject map = (JSONObject) data.get("map");
@@ -73,7 +78,6 @@ public class CollectCard {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
 		String newMapJSONData = gson.toJson(data);
-//		System.out.println(newMapJSONData);
 		
 		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
         file.write(newMapJSONData);
@@ -88,7 +92,6 @@ public class CollectCard {
 	}
 	
 	public String execute() throws Exception {
-//		System.out.println(card_id);
 		
 		try {
 			addToInventory();

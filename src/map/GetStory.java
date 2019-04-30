@@ -66,7 +66,9 @@ public class GetStory {
 	
 	void populateStory() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject storiesJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/story.json"));
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/story.json");
+		JSONObject storiesJSON = (JSONObject)jsonParser.parse(f);
+		f.close();
 		
 		JSONObject storyJSON = (JSONObject) storiesJSON.get(level);
 		

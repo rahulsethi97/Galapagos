@@ -26,7 +26,9 @@ public class MapDetails {
 		JSONParser jsonParser = new JSONParser();
 		Object obj = null;
 		try {
-			obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+			FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+			obj = jsonParser.parse(f);
+			f.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,7 +1,6 @@
 package map;
 
 
-import org.apache.struts2.ServletActionContext;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -9,6 +8,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.struts2.ServletActionContext;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -77,7 +77,11 @@ public class StartBattle {
 	@SuppressWarnings("unchecked")
 	public void removeNPCFromJSON() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+		
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+		Object obj = jsonParser.parse(f);
+		f.close();
+		
 		JSONObject data = (JSONObject)obj;
 		
 		npc_id = (String) data.get("npc_battling");
@@ -98,7 +102,6 @@ public class StartBattle {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
 		String newMapJSONData = gson.toJson(data);
-//		System.out.println(newMapJSONData);
 		
 		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
         file.write(newMapJSONData);
@@ -110,7 +113,10 @@ public class StartBattle {
 	@SuppressWarnings("unchecked")
 	public void removeCardFromMap() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+		Object obj = jsonParser.parse(f);
+		f.close();
+		
 		JSONObject data = (JSONObject)obj;
 		
 		JSONArray inventory = (JSONArray) data.get("inventory");
@@ -141,7 +147,11 @@ public class StartBattle {
 	
 	public String getWinner() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json"));
+		
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json");
+		Object obj = jsonParser.parse(f);
+		f.close();
+		
 		JSONObject data = (JSONObject)obj;
 		
 		JSONObject playerCardObj = (JSONObject) data.get(this.player_card_id);
@@ -172,7 +182,6 @@ public class StartBattle {
 		if(winner.equals("Card2")) {
 			HttpSession session = ServletActionContext.getRequest().getSession();
 			System.out.println("Session ID: "+ServletActionContext.getRequest().getSession().getId());
-			String sessionId = session.getId();
 			
 			session.removeAttribute("GameStarted");
 			BattleBanter bb = new BattleBanter(npcCard, playerCard);
@@ -190,8 +199,6 @@ public class StartBattle {
 			if(level == 1) {
 				HttpSession session = ServletActionContext.getRequest().getSession();
 				System.out.println("Session ID: "+ServletActionContext.getRequest().getSession().getId());
-				String sessionId = session.getId();
-				
 				session.setAttribute("ShowEnd", "1");
 			}
 			StartProceduralGenerator gameEngine = new StartProceduralGenerator(level+1);
@@ -200,7 +207,6 @@ public class StartBattle {
 	}
 	
 	public String execute() throws Exception {
-//		System.out.println(npc_card_id + " VS " + player_card_id);
 		try {
 			startBattle();
 		}catch(Exception e) {

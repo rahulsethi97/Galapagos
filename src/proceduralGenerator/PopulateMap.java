@@ -33,7 +33,6 @@ public class PopulateMap {
 		
 		for (Object key : npcs.keySet()) {
 			if(npcs.get(key) instanceof JSONObject) {
-//				System.out.println(npcs.get(key));
 				JSONObject npc = (JSONObject) npcs.get(key);
 				if(npc.get("X").equals(X) || npc.get("Y").equals(Y)) {
 					return false;
@@ -77,19 +76,22 @@ public class PopulateMap {
 	void populateData() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
 		if(level == 1) {
-			JSONObject mapFrame = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/mapFrame.json"));
+			FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/mapFrame.json");
+			JSONObject mapFrame = (JSONObject)jsonParser.parse(f);
+			f.close();
 			
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			
 			String mapData = gson.toJson(mapFrame);
-//			System.out.println(mapData);
 			
 			FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
 	        file.write(mapData);
 	        file.flush();
 	        file.close();
 		}
-		this.data = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+		FileReader f1 = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+		this.data = (JSONObject)jsonParser.parse(f1);
+		f1.close();
 	}
 
 	@SuppressWarnings("unchecked")

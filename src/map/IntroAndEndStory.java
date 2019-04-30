@@ -32,13 +32,15 @@ public class IntroAndEndStory {
 
 	public void populateGuideMessage() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject storyJSON = (JSONObject) jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/story.json"));
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/story.json");
+		JSONObject storyJSON = (JSONObject) jsonParser.parse(f);
+		f.close();
+		
 		this.intro = (String) storyJSON.get("0");
 		this.end = (JSONObject) storyJSON.get("end");
 	}
 	
 	public String execute() throws Exception {
-//		System.out.println(this.npcCardId);
 		try {
 			populateGuideMessage();
 		}catch(Exception e) {

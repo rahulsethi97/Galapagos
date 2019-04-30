@@ -400,7 +400,7 @@ jQuery(window).load(function() {
 		type : "GET",
 		url : "showStory",
 		async: false,
-		data: {level: mapData.level},
+		data: {},
 		success : function(data) {
 			console.log(data);
 			storyData = data;

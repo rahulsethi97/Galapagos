@@ -20,9 +20,9 @@ public class StartProceduralGenerator {
 	void populateCoordinates() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
 		
-//		System.out.println(System.getProperty("user.dir"));
-		
-		JSONObject coordinate = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/coordinates.json"));
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/coordinates.json");
+		JSONObject coordinate = (JSONObject)jsonParser.parse(f);
+		f.close();
 		
 		coordinate.keySet().forEach(keyStr ->
 	    {

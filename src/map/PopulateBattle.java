@@ -49,7 +49,9 @@ public class PopulateBattle {
 	@SuppressWarnings("unchecked")
 	public void populateBattle() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+		Object obj = jsonParser.parse(f);
+		f.close();
 		JSONObject data = (JSONObject)obj;
 		
 		JSONObject map = (JSONObject) data.get("map");
@@ -58,8 +60,6 @@ public class PopulateBattle {
 		
 		JSONObject npcBattling = (JSONObject) npcs.get(this.npc_id);
 		
-//		System.out.println(this.npc_id);
-//		System.out.println(npcBattling);
 		JSONObject currentpos = (JSONObject) data.get("currentpos");
 		
 		this.new_x = (String) npcBattling.get("new_x");
@@ -75,7 +75,6 @@ public class PopulateBattle {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
 		String newMapJSONData = gson.toJson(data);
-//		System.out.println(newMapJSONData);
 		
 		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
         file.write(newMapJSONData);
@@ -84,7 +83,6 @@ public class PopulateBattle {
 	}
 	
 	public String execute() throws Exception {
-//		System.out.println(npc_id);
 		try {
 			populateBattle();
 		}catch(Exception e) {

@@ -55,7 +55,15 @@ public class ShowStory {
 	
 	public void populateStory() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject storiesJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/story.json"));
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/story.json");
+		JSONObject storiesJSON = (JSONObject)jsonParser.parse(f);
+		f.close();
+		
+		f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+		JSONObject mapJSON = (JSONObject)jsonParser.parse(f);
+		f.close();
+		
+		this.level = (String) mapJSON.get("level");
 		
 		JSONObject storyJSON = (JSONObject) storiesJSON.get(level);
 		
@@ -69,7 +77,9 @@ public class ShowStory {
 		JSONObject obj1 = null;
 		
 		try {
-			obj1 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+			FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+			obj1 = (JSONObject)jsonParser.parse(f);
+			f.close();
 		
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,10 +89,7 @@ public class ShowStory {
 		
 		populateStory();
 		
-//		System.out.println("Here1");
-//		System.out.println(this.show_story);
 		if(this.show_story.equals("1")) {
-//			System.out.println("Here2");
 			obj1.put("show_story", "0");
 		}
 		
@@ -99,7 +106,11 @@ public class ShowStory {
 	@SuppressWarnings("unchecked")
 	public void updateNpcBattling() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+		
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+		Object obj = jsonParser.parse(f);
+		f.close();
+		
 		JSONObject data = (JSONObject)obj;
 		
 		

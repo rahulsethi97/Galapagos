@@ -63,9 +63,17 @@ public class PopulateInventory {
 		JSONObject obj2 = null;
 		JSONObject obj3 = null;
 		try {
-			obj1 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
-			obj2 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json"));
-			obj3 = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/npcs.json"));
+			FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+			obj1 = (JSONObject)jsonParser.parse(f);
+			f.close();
+			
+			f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json");
+			obj2 = (JSONObject)jsonParser.parse(f);
+			f.close();
+			
+			f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/npcs.json");
+			obj3 = (JSONObject)jsonParser.parse(f);
+			f.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,10 +83,7 @@ public class PopulateInventory {
 		JSONArray inventory = (JSONArray) obj1.get("inventory");
 		inventoryData = new JSONObject();
 		for (int i = 0; i < inventory.size(); i++) {
-			String cardId = inventory.get(i).toString();
-//			System.out.println(cardId);
-//			System.out.println(obj2.get(cardId));
-			
+			String cardId = inventory.get(i).toString();			
 			inventoryData.put(cardId, obj2.get(cardId));
 		}
 		cardDetails = obj2;

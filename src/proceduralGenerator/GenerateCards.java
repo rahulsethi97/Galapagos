@@ -1,7 +1,6 @@
 package proceduralGenerator;
 
 
-import org.apache.struts2.ServletActionContext;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -10,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.apache.struts2.ServletActionContext;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -58,8 +58,9 @@ public class GenerateCards {
 	@SuppressWarnings("unchecked")
 	void populateCards() throws FileNotFoundException, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
-		JSONObject cardJSON = (JSONObject)jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json"));
-		
+		FileReader cardFile = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json");
+		JSONObject cardJSON = (JSONObject)jsonParser.parse(cardFile);
+		cardFile.close();
 		List<Card> cardList = new ArrayList<Card>();
 		for(int cardId = 1 ; cardId <= 40; cardId++) {
 			JSONObject cardObj = new JSONObject();
@@ -105,7 +106,6 @@ public class GenerateCards {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
 		String newCardJSONData = gson.toJson(cardJSON);
-//		System.out.println(newCardJSONData);
 		
 		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/cards.json");
         file.write(newCardJSONData);

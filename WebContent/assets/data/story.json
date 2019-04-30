@@ -13,7 +13,7 @@
 		"story": "Luke Castellan is an old friend of yours. He used to go to the same school as you and used to train with you. He is the son of Hermes. Like you, he was also a champion of honesty and truth. But power and greed has overtaken him and polluted his mind. He is quick and is responsible for giving access to this island to Kronos.",
 		"battle_conversation": "Percy: Et tu Luke?#Luke: Desperate times call for desperate measures, Percy.#Percy: Is power and greed far more superior than our friendship?#Luke: I guess it is. If you want you can end this nonsense and join us too.#Percy: My blood is far more purer than yours.#Luke: No more chit chat, let’s get this over with.",
 		"before_battle_init": "1",
-		"after_battle": "Percy: Well as they say bad meets evil. Do you wanna value our friendship and the good old days or the human inside you is dead?#Luke: I am far away from home.#Percy: You can redeem yourself by telling me who is my next opponent?#Luke: As a token of our friendship, I will tell you about your next opponent. He is Octavian.",
+		"after_battle": "Percy: Well as they say bad meets evil. Do you wanna value our friendship and the good old days or the human inside you is dead?#Luke: I am far away from home.#Percy: You can redeem yourself by telling me who is my next opponent?#Luke: As a token of our friendship, I will tell you about your next opponent. He is Zelus.",
 		"after_battle_init": "1"
 	},
 	"3":{
@@ -21,7 +21,7 @@
         "story": "Zelus who serves as the spy master for Hades, your final opponent. He is feared by nobles and common people alike. He is a skilled manipulator and commands a network of spies across the island.",
         "battle_conversation": "Zelus: I’ve been expecting you, Percy. What took you so long?#Percy: Glad to be here!#Zelus: Do you really think you could walk all over me with the cards you have collected?#Percy: Is lip-service all you do?",
         "before_battle_init": "0",
-        "after_battle": "Percy: I hate to say “I told you so”, I’m going to sing it instead. Now, do you want to tell me who is my next opponent or shall I crush you again?#Zelus: Fine young lad, your next opponent is .",
+        "after_battle": "Percy: I hate to say “I told you so”, I’m going to sing it instead. Now, do you want to tell me who is my next opponent or shall I crush you again?#Zelus: Fine young lad, your next opponent is Octavian.",
         "after_battle_init": "1"
 	},
 	"4":{
@@ -54,19 +54,18 @@
 	    "battle_conversation": "Hades: Oh, I see, you have been successful in reaching here so far. But now is the time to lose.#Percy: Hades, I have come here to defeat you and stop you from using the magical cards for your own use.#Hades: Oh, what do you know, what all these cards can do! You don’t have any idea about the cards true power.#Percy: There is still time, you still can give up all this and follow the righteous path.#Hades: This is the righteous path, and you soon will understand this.#Percy: Not going to give up now Hades.",
 	    "before_battle_init": "0",
 	    "after_battle": "Hades: You really thought this is the end and it's that easy?#Percy: I think losing has affected your brain. #Hermes: Haha, kid! It's not over yet. #Percy:What do you mean?",
-	    "after_battle_init": "1"
+	    "after_battle_init": "0"
 	},
 	"8":{
 		"title": "Final chapter",
 		"story": "After defeating Hades, you thought that everything would go back to normal now. But that does not happen, one more creature comes out. Nobody knew about him. His name is Kronos, he is my father. He is the most powerful of them all, known for his skills, mind and power. Hades was his son and they both got greedy and started following the devious path.You killed his son and he is going to take his revenge. He won’t let you go easily.  Are you ready? And guess what? Zeus is the brother of Poseidon.",
 		"battle_conversation": "Kronos: You have defeated all my best fighters, some of them were undefeated.#Percy: Well, you should have recruited someone better.#Kronos: Hahaha! You never give up, do you?#Percy: Still going strong.#Kronos: This fight is not going to be a cakewalk for you kid.#Percy: I don’t expect it to be. ",
 		"before_battle_init": "0",
-		"after_battle":"yet to be finalised.",
+		"after_battle":"Percy: Am I still a noob?#Zeus: Haha, you are a great fighter and I guess the best man won. Congratulations.#Percy:You will be forever cursed for these deeds.",
 		"after_battle_init":"1"
 	},
 	"end":{
 		"title": "And then there were none.",
 		"story": "After defeating all the fighters and their leader Kronos, Percy restores the balance on the island. All the magical cards which were going to be distributed in the outside world were recollected and were safely stored deep inside in a cave which was closed with a magical spell, which can not be seen through a naked eye."
-
 	}
 }

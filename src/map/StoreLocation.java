@@ -45,9 +45,12 @@ public class StoreLocation {
 
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception {
-//		System.out.println(X + " - " + Y);
 		JSONParser jsonParser = new JSONParser();
-		Object obj = jsonParser.parse(new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json"));
+		
+		FileReader f = new FileReader(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
+		Object obj = jsonParser.parse(f);
+		f.close();
+		
 		JSONObject data = (JSONObject)obj;
 		
 		JSONObject currentLoc = (JSONObject) data.get("currentpos");
@@ -61,7 +64,6 @@ public class StoreLocation {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
 		String newMapJSONData = gson.toJson(data);
-//		System.out.println(newMapJSONData);
 		
 		FileWriter file = new FileWriter(Constants.projectRootPath + "/assets/data/" + ServletActionContext.getRequest().getSession().getId() + "/map.json");
         file.write(newMapJSONData);
